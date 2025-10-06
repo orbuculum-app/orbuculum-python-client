@@ -1,0 +1,58 @@
+services:
+  builder:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    container_name: orbuculum-builder
+    volumes:
+      # Mount only necessary files for building
+      - ./pyproject.toml:/workspace/pyproject.toml:ro
+      - ./setup.cfg:/workspace/setup.cfg:ro
+      - ./requirements.txt:/workspace/requirements.txt:ro
+      - ./README.md:/workspace/README.md:ro
+      - ./LICENSE:/workspace/LICENSE:ro
+      - ./MANIFEST.in:/workspace/MANIFEST.in:ro
+      - ./orbuculum_client:/workspace/orbuculum_client:ro
+      - ./docs:/workspace/docs:ro
+      # Mount output directory for built packages
+      - ./dist:/workspace/dist
+    working_dir: /workspace
+    command: python -m build --wheel --sdist --outdir /workspace/dist
+
+  # Service for interactive development/testing
+  dev:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    container_name: orbuculum-dev
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  # Service for updating API client from OpenAPI spec
+  updater:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    container_name: orbuculum-updater
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: /workspace/scripts/update_api.sh
+
+  # Service for publishing to PyPI/TestPyPI
+  publisher:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    container_name: orbuculum-publisher
+    volumes:
+      - .:/workspace
+      - ~/.pypirc:/root/.pypirc:ro
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    entrypoint: /workspace/scripts/publish.sh
