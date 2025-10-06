@@ -147,10 +147,19 @@ if [[ "$NO_GIT" == false ]]; then
         echo -e "${YELLOW}⚠ Not a git repository, skipping git checks${NC}"
         NO_GIT=true
     else
-        # Check for uncommitted changes
+        # Configure git to ignore filemode changes (Docker container issue)
+        git config core.fileMode false
+        
+        # Refresh git index to ignore filemode changes
+        git update-index --refresh > /dev/null 2>&1 || true
+        
+        # Check for uncommitted changes (ignore filemode)
         if ! git diff-index --quiet HEAD --; then
             echo -e "${RED}✗ Git working directory has uncommitted changes${NC}"
             echo -e "${YELLOW}Please commit or stash your changes first${NC}"
+            echo ""
+            echo -e "${YELLOW}Tip: If running in Docker and seeing false positives, use:${NC}"
+            echo -e "  ${GREEN}docker-compose run --rm publisher pypi --no-git${NC}"
             exit 1
         fi
         echo -e "${GREEN}✓ Git working directory is clean${NC}"
