@@ -304,14 +304,13 @@ if [[ "$NO_GIT" == false ]] && [[ "$DRY_RUN" == false ]]; then
             TAG_MSG="${TAG_MSG} - Supports API ${API_VERSION}"
         fi
         git tag -a "v${VERSION}" -m "${TAG_MSG}"
-        echo -e "${GREEN}✓ Created tag v${VERSION}${NC}"
-        
-        read -p "Push tag to origin? (y/N): " -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            git push origin "v${VERSION}"
-            echo -e "${GREEN}✓ Tag pushed to origin${NC}"
-        fi
+        echo -e "${GREEN}✓ Created tag v${VERSION} locally${NC}"
+        echo ""
+        echo -e "${BLUE}To push the tag to remote repository, run:${NC}"
+        echo -e "  ${GREEN}git push origin v${VERSION}${NC}"
+        echo ""
+        echo -e "${BLUE}Or to push all tags:${NC}"
+        echo -e "  ${GREEN}git push --tags${NC}"
     fi
 else
     echo -e "${YELLOW}[8/8] Skipping git operations${NC}"
@@ -323,7 +322,7 @@ echo -e "${GREEN}================================${NC}"
 echo -e "${GREEN}✓ Publishing Complete!${NC}"
 echo -e "${GREEN}================================${NC}"
 echo ""
-echo -e "Package:        ${GREEN}orbuculum${NC}"
+echo -e "Package:        ${GREEN}orbuculum-client${NC}"
 echo -e "Client Version: ${GREEN}${VERSION}${NC}"
 if [[ -n "$API_VERSION" ]]; then
     echo -e "Supports API:   ${GREEN}${API_VERSION}${NC}"
@@ -333,16 +332,29 @@ echo ""
 
 if [[ "$DRY_RUN" == false ]]; then
     echo -e "${BLUE}Next steps:${NC}"
-    echo "1. Test installation:"
-    if [[ "$TARGET" == "testpypi" ]]; then
-        echo "   pip install -i https://test.pypi.org/simple/ orbuculum==${VERSION}"
+    
+    # Show git push reminder only for PyPI (not TestPyPI)
+    if [[ "$NO_GIT" == false ]] && [[ "$TARGET" == "pypi" ]]; then
+        echo "1. Push the git tag to remote:"
+        echo "   git push origin v${VERSION}"
+        echo ""
+        STEP=2
     else
-        echo "   pip install orbuculum==${VERSION}"
+        STEP=1
+    fi
+    
+    echo "${STEP}. Test installation:"
+    if [[ "$TARGET" == "testpypi" ]]; then
+        echo "   pip install -i https://test.pypi.org/simple/ orbuculum-client==${VERSION}"
+    else
+        echo "   pip install orbuculum-client==${VERSION}"
     fi
     echo ""
-    echo "2. Verify the package works:"
-    echo "   python -c 'import orbuculum; print(f\"Client: {orbuculum.__version__}, API: {orbuculum.__api_supported__}\")'"
+    STEP=$((STEP + 1))
+    echo "${STEP}. Verify the package works:"
+    echo "   python -c 'import orbuculum_client; print(f\"Client: {orbuculum_client.__version__}, API: {orbuculum_client.__api_supported__}\")'"
     echo ""
-    echo "3. Check the package page:"
-    echo "   ${PACKAGE_URL_BASE}/orbuculum/"
+    STEP=$((STEP + 1))
+    echo "${STEP}. Check the package page:"
+    echo "   ${PACKAGE_URL_BASE}/orbuculum-client/"
 fi
