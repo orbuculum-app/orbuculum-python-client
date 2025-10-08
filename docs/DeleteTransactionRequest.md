@@ -6,7 +6,7 @@ Request body for deleting a transaction
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **id** | **int** | Transaction ID to delete | 
 
 ## Example

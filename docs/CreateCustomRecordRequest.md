@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID where the custom table exists | 
+**workspace_id** | **int** | Workspace ID where the custom table exists | 
 **table_name** | **str** | Custom table name (prefix &#39;c_&#39; will be added automatically if not present). Example: &#39;clients&#39; becomes &#39;c_clients&#39; | 
 **record_data** | **Dict[str, object]** | Key-value pairs where keys are column names in your custom table and values are the data to insert. Column names must match your table schema. | 
 

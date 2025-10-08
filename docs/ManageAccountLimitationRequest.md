@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **account_id** | **int** | Account ID | 
 **action** | **str** | Action to perform | 
 **type** | **str** | Limitation type | [optional] 

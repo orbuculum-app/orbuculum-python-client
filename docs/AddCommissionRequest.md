@@ -6,7 +6,7 @@ Request body for adding commission to a transaction
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **id** | **int** | Transaction ID | 
 **commission** | [**CommissionData**](CommissionData.md) |  | 
 **commission_side** | **str** | Commission side (sender/receiver) | [optional] 

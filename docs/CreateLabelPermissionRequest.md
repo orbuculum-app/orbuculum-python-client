@@ -6,8 +6,8 @@ Request body for creating label permission
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**workspace_id** | **int** | Workspace ID | 
 **project_id** | **int** | Project ID | 
-**label_id** | **int** | Label ID | 
 **role_id** | **int** | Role ID | 
 **can_read** | **bool** | Read permission | [optional] 
 **can_write** | **bool** | Write permission | [optional] 

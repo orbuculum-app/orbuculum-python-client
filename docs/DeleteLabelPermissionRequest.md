@@ -6,8 +6,8 @@ Request body for deleting label permission
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**workspace_id** | **int** | Workspace ID | 
 **project_id** | **int** | Project ID | 
-**label_id** | **int** | Label ID | 
 **role_id** | **int** | Role ID | 
 **account_id** | **int** | Account ID | 
 **can_manage** | **bool** | Whether to delete manage permission | 

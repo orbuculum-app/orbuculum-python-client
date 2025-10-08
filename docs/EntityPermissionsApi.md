@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_entity_permissions**
-> GetEntityPermissionsResponse get_entity_permissions(project_id, entity_id=entity_id, role_id=role_id)
+> GetEntityPermissionsResponse get_entity_permissions(workspace_id, entity_id=entity_id, role_id=role_id)
 
 Get entity permissions
 
@@ -209,13 +209,13 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.EntityPermissionsApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     entity_id = 1 # int | Specific entity ID to get permissions for (optional)
     role_id = 1 # int | Role ID to filter permissions (optional)
 
     try:
         # Get entity permissions
-        api_response = api_instance.get_entity_permissions(project_id, entity_id=entity_id, role_id=role_id)
+        api_response = api_instance.get_entity_permissions(workspace_id, entity_id=entity_id, role_id=role_id)
         print("The response of EntityPermissionsApi->get_entity_permissions:\n")
         pprint(api_response)
     except Exception as e:
@@ -229,7 +229,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **entity_id** | **int**| Specific entity ID to get permissions for | [optional] 
  **role_id** | **int**| Role ID to filter permissions | [optional] 
 

@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_account**
-> SuccessResponse delete_account(project_id, id)
+> SuccessResponse delete_account(workspace_id, id)
 
 Delete an existing account
 
@@ -214,12 +214,12 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.AccountApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     id = 1 # int | Account ID to delete
 
     try:
         # Delete an existing account
-        api_response = api_instance.delete_account(project_id, id)
+        api_response = api_instance.delete_account(workspace_id, id)
         print("The response of AccountApi->delete_account:\n")
         pprint(api_response)
     except Exception as e:
@@ -233,7 +233,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **id** | **int**| Account ID to delete | 
 
 ### Return type
@@ -261,11 +261,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account**
-> GetAccountResponse get_account(project_id, id=id, entity_id=entity_id)
+> GetAccountResponse get_account(workspace_id, id=id, entity_id=entity_id)
 
 Get account details
 
-Retrieves details of a specific account by project ID and account ID. Requires JWT authentication.
+Retrieves details of a specific account by workspace ID and account ID. Requires JWT authentication.
 
 ### Example
 
@@ -297,13 +297,13 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.AccountApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     id = 1 # int | Account ID (optional, to get specific account) (optional)
     entity_id = 1 # int | Entity ID (optional, to get all accounts for specific entity) (optional)
 
     try:
         # Get account details
-        api_response = api_instance.get_account(project_id, id=id, entity_id=entity_id)
+        api_response = api_instance.get_account(workspace_id, id=id, entity_id=entity_id)
         print("The response of AccountApi->get_account:\n")
         pprint(api_response)
     except Exception as e:
@@ -317,7 +317,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **id** | **int**| Account ID (optional, to get specific account) | [optional] 
  **entity_id** | **int**| Entity ID (optional, to get all accounts for specific entity) | [optional] 
 

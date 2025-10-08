@@ -6,7 +6,7 @@ Request body for creating account permission
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **account_id** | **int** | Account ID | 
 **role_id** | **int** | Role ID | 
 **can_manage** | **bool** | Management permission | 

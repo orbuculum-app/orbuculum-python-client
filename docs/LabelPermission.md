@@ -6,7 +6,7 @@ Label permission object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**label_id** | **int** | Label ID | [optional] 
+**project_id** | **int** | Project ID | [optional] 
 **label_name** | **str** | Label name | [optional] 
 **can_read** | **bool** | Read permission | [optional] 
 **can_write** | **bool** | Write permission | [optional] 

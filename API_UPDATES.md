@@ -70,9 +70,9 @@ The update script **automatically manages version information** to prevent overw
    ```toml
    version = "0.0.2"  # Bump according to SemVer
    ```
-   Next update will sync it to `__init__.py`
-
-3. **Verify synchronization**:
+   **Then run step 1 again** to sync the version to `__init__.py`
+   
+   **Verify synchronization**:
    ```bash
    grep -A2 '__version__' orbuculum_client/__init__.py
    grep '^version' pyproject.toml

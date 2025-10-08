@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID where the custom table exists | 
+**workspace_id** | **int** | Workspace ID where the custom table exists | 
 **table_name** | **str** | Custom table name (prefix &#39;c_&#39; will be added automatically if not present) | 
 **query_column** | **str** | Column name to identify which record(s) to delete (usually &#39;id&#39;) | 
 **query_value** | **object** | Value to match in query_column to find the record(s) to delete | 

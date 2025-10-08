@@ -6,8 +6,8 @@ Request body for updating an existing label
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
-**label_id** | **int** | Label ID to update | 
+**workspace_id** | **int** | Workspace ID | 
+**project_id** | **int** | Project ID to update | 
 **name** | **str** | New label name | 
 **color** | **int** | Label color ID | 
 **icon** | **int** | Label icon ID | 

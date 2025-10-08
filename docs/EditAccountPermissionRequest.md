@@ -6,7 +6,7 @@ Request body for editing account permission
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **permission_id** | **int** | Permission ID to edit | 
 **can_read** | **bool** | Read permission | [optional] 
 **can_write** | **bool** | Write permission | [optional] 

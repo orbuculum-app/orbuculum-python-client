@@ -7,7 +7,7 @@ Transaction details
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Transaction ID | [optional] 
-**project_id** | **int** | Project ID | [optional] 
+**workspace_id** | **int** | Workspace ID | [optional] 
 **dt** | **str** | Transaction date and time | [optional] 
 **comment** | **str** | Transaction comment | [optional] 
 **description** | **str** | Transaction description | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **receiver_account_id** | **int** | Receiver account ID | [optional] 
 **receiver_amount** | **str** | Receiver amount | [optional] 
 **receiver_balance_after** | **str** | Receiver balance after transaction | [optional] 
-**label_id** | **int** | Label ID | [optional] 
+**project_id** | **int** | Project ID | [optional] 
 **commission_applied** | **bool** | Whether commission was applied | [optional] 
 **chained_receiver_commission** | **int** | Chained receiver commission transaction ID | [optional] 
 **chained_id** | **int** | Chained transaction ID | [optional] 

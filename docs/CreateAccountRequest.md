@@ -6,7 +6,7 @@ Request body for creating a new account
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **entity_id** | **int** | Entity ID | 
 **name** | **str** | Account name | 
 **currency_id** | **int** | Currency ID | [optional] 

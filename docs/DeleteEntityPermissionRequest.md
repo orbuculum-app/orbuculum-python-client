@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **entity_id** | **int** | Entity ID | 
 **role_id** | **int** | Role ID | 
 **can_manage** | **bool** | Whether to delete manage permission | 

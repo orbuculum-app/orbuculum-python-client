@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction**
-> TransactionListResponse get_transaction(project_id, id=id, apikey=apikey)
+> TransactionListResponse get_transaction(workspace_id, id=id, apikey=apikey)
 
 Get transaction details
 
@@ -296,13 +296,13 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.TransactionApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     id = 1 # int | Transaction ID (optional) (optional)
     apikey = 'apikey_example' # str | API key for additional access (optional)
 
     try:
         # Get transaction details
-        api_response = api_instance.get_transaction(project_id, id=id, apikey=apikey)
+        api_response = api_instance.get_transaction(workspace_id, id=id, apikey=apikey)
         print("The response of TransactionApi->get_transaction:\n")
         pprint(api_response)
     except Exception as e:
@@ -316,7 +316,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **id** | **int**| Transaction ID (optional) | [optional] 
  **apikey** | **str**| API key for additional access | [optional] 
 

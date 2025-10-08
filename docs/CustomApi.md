@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_custom_tables**
-> GetCustomTablesResponse get_custom_tables(project_id)
+> GetCustomTablesResponse get_custom_tables(workspace_id)
 
 Get list of custom tables
 
@@ -210,11 +210,11 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.CustomApi(api_client)
-    project_id = 1 # int | Project ID to get custom tables from
+    workspace_id = 1 # int | Workspace ID to get custom tables from
 
     try:
         # Get list of custom tables
-        api_response = api_instance.get_custom_tables(project_id)
+        api_response = api_instance.get_custom_tables(workspace_id)
         print("The response of CustomApi->get_custom_tables:\n")
         pprint(api_response)
     except Exception as e:
@@ -228,7 +228,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID to get custom tables from | 
+ **workspace_id** | **int**| Workspace ID to get custom tables from | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_custom_records**
-> ReadCustomRecordsResponse read_custom_records(project_id, table_name, query_column=query_column, query_value=query_value)
+> ReadCustomRecordsResponse read_custom_records(workspace_id, table_name, query_column=query_column, query_value=query_value)
 
 Read records from custom table
 
@@ -290,14 +290,14 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.CustomApi(api_client)
-    project_id = 1 # int | Project ID where the custom table exists
+    workspace_id = 1 # int | Workspace ID where the custom table exists
     table_name = 'clients' # str | Custom table name (prefix 'c_' will be added automatically if not present)
     query_column = 'status' # str | Column name to filter by (optional). If provided, query_value must also be provided. (optional)
     query_value = 'active' # str | Value to filter by (optional). Used together with query_column to find specific records. (optional)
 
     try:
         # Read records from custom table
-        api_response = api_instance.read_custom_records(project_id, table_name, query_column=query_column, query_value=query_value)
+        api_response = api_instance.read_custom_records(workspace_id, table_name, query_column=query_column, query_value=query_value)
         print("The response of CustomApi->read_custom_records:\n")
         pprint(api_response)
     except Exception as e:
@@ -311,7 +311,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID where the custom table exists | 
+ **workspace_id** | **int**| Workspace ID where the custom table exists | 
  **table_name** | **str**| Custom table name (prefix &#39;c_&#39; will be added automatically if not present) | 
  **query_column** | **str**| Column name to filter by (optional). If provided, query_value must also be provided. | [optional] 
  **query_value** | **str**| Value to filter by (optional). Used together with query_column to find specific records. | [optional] 

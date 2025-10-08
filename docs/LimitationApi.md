@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_limitation**
-> GetLimitationsResponse get_limitation(project_id, account_id, label_id=label_id)
+> GetLimitationsResponse get_limitation(workspace_id, account_id, project_id=project_id)
 
 Get limitations for an account
 
@@ -46,13 +46,13 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LimitationApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     account_id = 1 # int | Account ID to get limitations for
-    label_id = 1 # int | Label ID (optional filter) (optional)
+    project_id = 1 # int | Project ID (optional filter) (optional)
 
     try:
         # Get limitations for an account
-        api_response = api_instance.get_limitation(project_id, account_id, label_id=label_id)
+        api_response = api_instance.get_limitation(workspace_id, account_id, project_id=project_id)
         print("The response of LimitationApi->get_limitation:\n")
         pprint(api_response)
     except Exception as e:
@@ -66,9 +66,9 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **account_id** | **int**| Account ID to get limitations for | 
- **label_id** | **int**| Label ID (optional filter) | [optional] 
+ **project_id** | **int**| Project ID (optional filter) | [optional] 
 
 ### Return type
 

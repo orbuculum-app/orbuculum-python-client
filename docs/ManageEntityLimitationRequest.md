@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **target_account_id** | **int** | Target account ID | 
 **limitation_entity_id** | **int** | Limitation entity ID | 
 **limitation** | **str** | Limitation value | 
-**label_id** | **int** | Label ID | 
+**project_id** | **int** | Project ID | 
 
 ## Example
 

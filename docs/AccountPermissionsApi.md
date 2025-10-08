@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_account_permission**
-> SuccessResponse delete_account_permission(project_id, permission_id)
+> SuccessResponse delete_account_permission(workspace_id, permission_id)
 
 Delete account permission
 
@@ -128,12 +128,12 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.AccountPermissionsApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     permission_id = 1 # int | Permission ID to delete
 
     try:
         # Delete account permission
-        api_response = api_instance.delete_account_permission(project_id, permission_id)
+        api_response = api_instance.delete_account_permission(workspace_id, permission_id)
         print("The response of AccountPermissionsApi->delete_account_permission:\n")
         pprint(api_response)
     except Exception as e:
@@ -147,7 +147,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **permission_id** | **int**| Permission ID to delete | 
 
 ### Return type
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account_permissions**
-> GetAccountPermissionsResponse get_account_permissions(project_id, account_id=account_id)
+> GetAccountPermissionsResponse get_account_permissions(workspace_id, account_id=account_id)
 
 Get account permissions
 
@@ -293,12 +293,12 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.AccountPermissionsApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     account_id = 1 # int | Specific account ID to get permissions for (optional)
 
     try:
         # Get account permissions
-        api_response = api_instance.get_account_permissions(project_id, account_id=account_id)
+        api_response = api_instance.get_account_permissions(workspace_id, account_id=account_id)
         print("The response of AccountPermissionsApi->get_account_permissions:\n")
         pprint(api_response)
     except Exception as e:
@@ -312,7 +312,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **account_id** | **int**| Specific account ID to get permissions for | [optional] 
 
 ### Return type

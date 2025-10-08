@@ -6,7 +6,7 @@ Request body for updating an existing account
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **id** | **int** | Account ID to update | 
 **name** | **str** | New account name | [optional] 
 **currency_id** | **int** | Currency ID | [optional] 

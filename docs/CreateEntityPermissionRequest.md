@@ -6,7 +6,7 @@ Request body for creating entity permission
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **entity_id** | **int** | Entity ID | 
 **role_id** | **int** | Role ID | 
 **can_manage** | **bool** | Management permission (default: false) | [optional] 

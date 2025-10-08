@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_label**
-> SuccessResponse delete_label(project_id, id)
+> SuccessResponse delete_label(workspace_id, id)
 
 Delete an existing label
 
@@ -132,12 +132,12 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LabelApi(api_client)
-    project_id = 1 # int | Project ID
+    workspace_id = 1 # int | Workspace ID
     id = 1 # int | Label ID to delete
 
     try:
         # Delete an existing label
-        api_response = api_instance.delete_label(project_id, id)
+        api_response = api_instance.delete_label(workspace_id, id)
         print("The response of LabelApi->delete_label:\n")
         pprint(api_response)
     except Exception as e:
@@ -151,7 +151,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
+ **workspace_id** | **int**| Workspace ID | 
  **id** | **int**| Label ID to delete | 
 
 ### Return type
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_label**
-> GetLabelsResponse get_label(project_id, label_id=label_id)
+> GetLabelsResponse get_label(workspace_id, project_id=project_id)
 
 Get label
 
@@ -216,12 +216,12 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LabelApi(api_client)
-    project_id = 1 # int | Project ID
-    label_id = 1 # int | Label ID (optional, to get specific label) (optional)
+    workspace_id = 1 # int | Workspace ID
+    project_id = 1 # int | Project ID (optional, to get specific label) (optional)
 
     try:
         # Get label
-        api_response = api_instance.get_label(project_id, label_id=label_id)
+        api_response = api_instance.get_label(workspace_id, project_id=project_id)
         print("The response of LabelApi->get_label:\n")
         pprint(api_response)
     except Exception as e:
@@ -235,8 +235,8 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
- **label_id** | **int**| Label ID (optional, to get specific label) | [optional] 
+ **workspace_id** | **int**| Workspace ID | 
+ **project_id** | **int**| Project ID (optional, to get specific label) | [optional] 
 
 ### Return type
 

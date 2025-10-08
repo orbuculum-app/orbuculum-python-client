@@ -6,7 +6,7 @@ Request body for updating an existing transaction
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **id** | **int** | Transaction ID to update | 
 **sender_account_id** | **int** | Sender account ID | [optional] 
 **receiver_account_id** | **int** | Receiver account ID | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **dt** | **str** | Transaction date and time | [optional] 
 **comment** | **str** | Transaction comment | [optional] 
 **description** | **str** | Transaction description | [optional] 
-**label_id** | **int** | Label ID | [optional] 
+**project_id** | **int** | Project ID | [optional] 
 **done** | **str** | Transaction status (true/false) | [optional] 
 
 ## Example

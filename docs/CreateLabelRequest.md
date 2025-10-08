@@ -6,7 +6,7 @@ Request body for creating a new label
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **name** | **str** | Label name | 
 **color** | **int** | Label color ID | 
 **icon** | **int** | Label icon ID | 

@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_label_permissions**
-> GetLabelPermissionsResponse get_label_permissions(project_id, label_id=label_id, role_id=role_id, account_id=account_id)
+> GetLabelPermissionsResponse get_label_permissions(workspace_id, project_id=project_id, role_id=role_id, account_id=account_id)
 
 Get label permissions
 
@@ -209,14 +209,14 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LabelPermissionsApi(api_client)
-    project_id = 1 # int | Project ID
-    label_id = 1 # int | Specific label ID to get permissions for (optional)
+    workspace_id = 1 # int | Workspace ID
+    project_id = 1 # int | Specific project ID to get permissions for (optional)
     role_id = 1 # int | Role ID to filter permissions (optional)
     account_id = 1 # int | Account ID to filter permissions (optional)
 
     try:
         # Get label permissions
-        api_response = api_instance.get_label_permissions(project_id, label_id=label_id, role_id=role_id, account_id=account_id)
+        api_response = api_instance.get_label_permissions(workspace_id, project_id=project_id, role_id=role_id, account_id=account_id)
         print("The response of LabelPermissionsApi->get_label_permissions:\n")
         pprint(api_response)
     except Exception as e:
@@ -230,8 +230,8 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Project ID | 
- **label_id** | **int**| Specific label ID to get permissions for | [optional] 
+ **workspace_id** | **int**| Workspace ID | 
+ **project_id** | **int**| Specific project ID to get permissions for | [optional] 
  **role_id** | **int**| Role ID to filter permissions | [optional] 
  **account_id** | **int**| Account ID to filter permissions | [optional] 
 

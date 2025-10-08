@@ -6,13 +6,13 @@ Request body for creating a new transaction
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | Project ID | 
+**workspace_id** | **int** | Workspace ID | 
 **sender_account_id** | **int** | Sender account ID | 
 **receiver_account_id** | **int** | Receiver account ID | 
 **sender_amount** | **str** | Sender amount | 
 **receiver_amount** | **str** | Receiver amount | 
 **dt** | **str** | Transaction date and time | 
-**label_id** | **int** | Label ID | 
+**project_id** | **int** | Project ID | 
 **comment** | **str** | Transaction comment | [optional] 
 **description** | **str** | Transaction description | [optional] 
 **done** | **str** | Transaction status (true/false) | [optional] 
