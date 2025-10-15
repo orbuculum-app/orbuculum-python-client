@@ -14,10 +14,10 @@
 
 import unittest
 
-from orbuculum_client.models.update_custom_records_response import UpdateCustomRecordsResponse
+from orbuculum_client.models.error_response500 import ErrorResponse500
 
-class TestUpdateCustomRecordsResponse(unittest.TestCase):
-    """UpdateCustomRecordsResponse unit test stubs"""
+class TestErrorResponse500(unittest.TestCase):
+    """ErrorResponse500 unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,27 +25,28 @@ class TestUpdateCustomRecordsResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> UpdateCustomRecordsResponse:
-        """Test UpdateCustomRecordsResponse
+    def make_instance(self, include_optional) -> ErrorResponse500:
+        """Test ErrorResponse500
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `UpdateCustomRecordsResponse`
+        # uncomment below to create an instance of `ErrorResponse500`
         """
-        model = UpdateCustomRecordsResponse()
+        model = ErrorResponse500()
         if include_optional:
-            return UpdateCustomRecordsResponse(
-                status = 200,
-                message = 'Record updated successfully',
-                result = 56
+            return ErrorResponse500(
+                status = 500,
+                error = 'Internal server error occurred'
             )
         else:
-            return UpdateCustomRecordsResponse(
+            return ErrorResponse500(
+                status = 500,
+                error = 'Internal server error occurred',
         )
         """
 
-    def testUpdateCustomRecordsResponse(self):
-        """Test UpdateCustomRecordsResponse"""
+    def testErrorResponse500(self):
+        """Test ErrorResponse500"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

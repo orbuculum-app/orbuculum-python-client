@@ -39,6 +39,8 @@ docs/ErrorResponse400.md
 docs/ErrorResponse401.md
 docs/ErrorResponse403.md
 docs/ErrorResponse404.md
+docs/ErrorResponse405.md
+docs/ErrorResponse500.md
 docs/GetAccountPermissionsResponse.md
 docs/GetAccountResponse.md
 docs/GetCustomTablesResponse.md
@@ -119,6 +121,8 @@ orbuculum_client/models/error_response400.py
 orbuculum_client/models/error_response401.py
 orbuculum_client/models/error_response403.py
 orbuculum_client/models/error_response404.py
+orbuculum_client/models/error_response405.py
+orbuculum_client/models/error_response500.py
 orbuculum_client/models/get_account_permissions_response.py
 orbuculum_client/models/get_account_response.py
 orbuculum_client/models/get_custom_tables_response.py
@@ -191,6 +195,8 @@ test/test_error_response400.py
 test/test_error_response401.py
 test/test_error_response403.py
 test/test_error_response404.py
+test/test_error_response405.py
+test/test_error_response500.py
 test/test_get_account_permissions_response.py
 test/test_get_account_response.py
 test/test_get_custom_tables_response.py

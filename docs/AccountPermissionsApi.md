@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 **201** | Account permission created successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -171,6 +172,7 @@ Name | Type | Description  | Notes
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
 **404** | Resource not found |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -253,6 +255,7 @@ Name | Type | Description  | Notes
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
 **404** | Resource not found |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -335,6 +338,7 @@ Name | Type | Description  | Notes
 **200** | Account permissions retrieved successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

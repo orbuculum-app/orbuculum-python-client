@@ -90,8 +90,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden - insufficient permissions |  -  |
 **409** | Conflict - label name already exists |  -  |
-**500** | Internal server error |  -  |
 **422** | Unprocessable entity - validation error |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -176,6 +176,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden - insufficient permissions |  -  |
 **404** | Resource not found |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -260,6 +262,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden - insufficient permissions |  -  |
 **404** | Resource not found |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -344,6 +348,8 @@ Name | Type | Description  | Notes
 **403** | Forbidden - insufficient permissions |  -  |
 **404** | Resource not found |  -  |
 **409** | Conflict - label name already exists |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

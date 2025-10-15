@@ -270,6 +270,8 @@ Class | Method | HTTP request | Description
  - [ErrorResponse401](docs/ErrorResponse401.md)
  - [ErrorResponse403](docs/ErrorResponse403.md)
  - [ErrorResponse404](docs/ErrorResponse404.md)
+ - [ErrorResponse405](docs/ErrorResponse405.md)
+ - [ErrorResponse500](docs/ErrorResponse500.md)
  - [GetAccountPermissionsResponse](docs/GetAccountPermissionsResponse.md)
  - [GetAccountResponse](docs/GetAccountResponse.md)
  - [GetCustomTablesResponse](docs/GetCustomTablesResponse.md)

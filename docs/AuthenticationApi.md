@@ -74,6 +74,8 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Successful login |  -  |
 **401** | Invalid credentials |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -89,6 +89,7 @@ Name | Type | Description  | Notes
 **200** | Record created successfully |  -  |
 **400** | Bad request - validation failed or table does not exist |  -  |
 **401** | Unauthorized |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -170,6 +171,8 @@ Name | Type | Description  | Notes
 **200** | Record deleted successfully |  -  |
 **400** | Bad request - validation failed or table does not exist |  -  |
 **401** | Unauthorized - invalid or expired token |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -250,6 +253,8 @@ Name | Type | Description  | Notes
 **200** | List of custom tables retrieved successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized - invalid or expired token |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -336,6 +341,8 @@ Name | Type | Description  | Notes
 **200** | Records retrieved successfully |  -  |
 **400** | Bad request - validation failed or table does not exist |  -  |
 **401** | Unauthorized - invalid or expired token |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -417,6 +424,8 @@ Name | Type | Description  | Notes
 **200** | Record updated successfully |  -  |
 **400** | Bad request - validation failed or table does not exist |  -  |
 **401** | Unauthorized - invalid or expired token |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
