@@ -228,9 +228,9 @@ Class | Method | HTTP request | Description
 *LabelPermissionsApi* | [**create_label_permission**](docs/LabelPermissionsApi.md#create_label_permission) | **POST** /api/permission/label-create | Create label permission
 *LabelPermissionsApi* | [**delete_label_permission**](docs/LabelPermissionsApi.md#delete_label_permission) | **DELETE** /api/permission/label-delete | Delete label permission
 *LabelPermissionsApi* | [**get_label_permissions**](docs/LabelPermissionsApi.md#get_label_permissions) | **GET** /api/permission/label | Get label permissions
-*LimitationApi* | [**get_limitation**](docs/LimitationApi.md#get_limitation) | **GET** /api/limitation/get | Get limitations for an account
-*LimitationApi* | [**manage_account_limitation**](docs/LimitationApi.md#manage_account_limitation) | **POST** /api/limitation/account-manage | Manage account limitation
-*LimitationApi* | [**manage_entity_limitation**](docs/LimitationApi.md#manage_entity_limitation) | **POST** /api/limitation/entity-manage | Manage entity limitation
+*LimitationApi* | [**get_limitation**](docs/LimitationApi.md#get_limitation) | **GET** /api/limitation/get | Get transaction limitations for an account
+*LimitationApi* | [**manage_account_limitation**](docs/LimitationApi.md#manage_account_limitation) | **POST** /api/limitation/account-manage | Manage account transaction limitations
+*LimitationApi* | [**manage_entity_limitation**](docs/LimitationApi.md#manage_entity_limitation) | **POST** /api/limitation/entity-manage | Manage entity transaction limitations
 *TransactionApi* | [**add_transaction_commission**](docs/TransactionApi.md#add_transaction_commission) | **POST** /api/transaction/add-commission | Add commission to a transaction
 *TransactionApi* | [**create_transaction**](docs/TransactionApi.md#create_transaction) | **POST** /api/transaction/create | Create a new transaction
 *TransactionApi* | [**delete_transaction**](docs/TransactionApi.md#delete_transaction) | **DELETE** /api/transaction/delete | Delete an existing transaction
@@ -281,6 +281,7 @@ Class | Method | HTTP request | Description
  - [GetLimitationsResponse](docs/GetLimitationsResponse.md)
  - [Label](docs/Label.md)
  - [LabelCreatedResponse](docs/LabelCreatedResponse.md)
+ - [LabelCreatedResponseData](docs/LabelCreatedResponseData.md)
  - [LabelPermission](docs/LabelPermission.md)
  - [Limitation](docs/Limitation.md)
  - [LimitationManagedResponse](docs/LimitationManagedResponse.md)
@@ -300,6 +301,8 @@ Class | Method | HTTP request | Description
  - [UpdateCustomRecordsRequest](docs/UpdateCustomRecordsRequest.md)
  - [UpdateCustomRecordsResponse](docs/UpdateCustomRecordsResponse.md)
  - [UpdateLabelRequest](docs/UpdateLabelRequest.md)
+ - [UpdateLabelResponse](docs/UpdateLabelResponse.md)
+ - [UpdateLabelResponseData](docs/UpdateLabelResponseData.md)
  - [UpdateTransactionRequest](docs/UpdateTransactionRequest.md)
 
 

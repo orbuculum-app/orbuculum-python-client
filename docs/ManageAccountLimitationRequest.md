@@ -6,13 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **workspace_id** | **int** | Workspace ID | 
-**account_id** | **int** | Account ID | 
-**action** | **str** | Action to perform | 
-**type** | **str** | Limitation type | [optional] 
-**value** | **float** | Limitation value | [optional] 
-**currency** | **str** | Currency code | [optional] 
-**period** | **str** | Time period | [optional] 
-**limitation_id** | **int** | Limitation ID (for update/delete) | [optional] 
+**target_account_id** | **int** | Target account ID for which limitation is set | 
+**limitation_account_id** | **int** | Account ID that is limited for transactions | 
+**limitation** | **str** | Transaction limitation type | 
+**project_id** | **int** | Project label ID | 
 
 ## Example
 

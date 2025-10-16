@@ -51,6 +51,7 @@ docs/GetLimitationsResponse.md
 docs/Label.md
 docs/LabelApi.md
 docs/LabelCreatedResponse.md
+docs/LabelCreatedResponseData.md
 docs/LabelPermission.md
 docs/LabelPermissionsApi.md
 docs/Limitation.md
@@ -73,6 +74,8 @@ docs/UpdateAccountRequest.md
 docs/UpdateCustomRecordsRequest.md
 docs/UpdateCustomRecordsResponse.md
 docs/UpdateLabelRequest.md
+docs/UpdateLabelResponse.md
+docs/UpdateLabelResponseData.md
 docs/UpdateTransactionRequest.md
 git_push.sh
 orbuculum_client/__init__.py
@@ -132,6 +135,7 @@ orbuculum_client/models/get_labels_response.py
 orbuculum_client/models/get_limitations_response.py
 orbuculum_client/models/label.py
 orbuculum_client/models/label_created_response.py
+orbuculum_client/models/label_created_response_data.py
 orbuculum_client/models/label_permission.py
 orbuculum_client/models/limitation.py
 orbuculum_client/models/limitation_managed_response.py
@@ -151,6 +155,8 @@ orbuculum_client/models/update_account_request.py
 orbuculum_client/models/update_custom_records_request.py
 orbuculum_client/models/update_custom_records_response.py
 orbuculum_client/models/update_label_request.py
+orbuculum_client/models/update_label_response.py
+orbuculum_client/models/update_label_response_data.py
 orbuculum_client/models/update_transaction_request.py
 orbuculum_client/py.typed
 orbuculum_client/rest.py
@@ -207,6 +213,7 @@ test/test_get_limitations_response.py
 test/test_label.py
 test/test_label_api.py
 test/test_label_created_response.py
+test/test_label_created_response_data.py
 test/test_label_permission.py
 test/test_label_permissions_api.py
 test/test_limitation.py
@@ -229,5 +236,7 @@ test/test_update_account_request.py
 test/test_update_custom_records_request.py
 test/test_update_custom_records_response.py
 test/test_update_label_request.py
+test/test_update_label_response.py
+test/test_update_label_response_data.py
 test/test_update_transaction_request.py
 tox.ini

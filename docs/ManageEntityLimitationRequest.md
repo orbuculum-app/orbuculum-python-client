@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **workspace_id** | **int** | Workspace ID | 
 **target_account_id** | **int** | Target account ID | 
 **limitation_entity_id** | **int** | Limitation entity ID | 
-**limitation** | **str** | Limitation value | 
+**limitation** | **str** | Transaction limitation type | 
 **project_id** | **int** | Project ID | 
 
 ## Example

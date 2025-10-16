@@ -7,10 +7,11 @@ Request body for updating an existing label
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **workspace_id** | **int** | Workspace ID | 
-**project_id** | **int** | Project ID to update | 
-**name** | **str** | New label name | 
-**color** | **int** | Label color ID | 
-**icon** | **int** | Label icon ID | 
+**project_id** | **int** | Label ID to update (parameter named project_id but represents label_id) | 
+**name** | **str** | New label name (optional) | [optional] 
+**color** | **int** | New color code (optional) | [optional] 
+**icon** | **int** | New icon code (optional) | [optional] 
+**description** | **str** | Label description (optional) | [optional] 
 
 ## Example
 

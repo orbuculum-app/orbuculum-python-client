@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction**
-> TransactionListResponse get_transaction(workspace_id, id=id, apikey=apikey)
+> Transaction get_transaction(workspace_id, id=id, apikey=apikey)
 
 Get transaction details
 
@@ -277,7 +277,7 @@ Get transaction details
 
 ```python
 import orbuculum_client
-from orbuculum_client.models.transaction_list_response import TransactionListResponse
+from orbuculum_client.models.transaction import Transaction
 from orbuculum_client.rest import ApiException
 from pprint import pprint
 
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TransactionListResponse**](TransactionListResponse.md)
+[**Transaction**](Transaction.md)
 
 ### Authorization
 

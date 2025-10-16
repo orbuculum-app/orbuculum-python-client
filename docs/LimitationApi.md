@@ -4,17 +4,17 @@ All URIs are relative to *https://s1.orbuculum.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_limitation**](LimitationApi.md#get_limitation) | **GET** /api/limitation/get | Get limitations for an account
-[**manage_account_limitation**](LimitationApi.md#manage_account_limitation) | **POST** /api/limitation/account-manage | Manage account limitation
-[**manage_entity_limitation**](LimitationApi.md#manage_entity_limitation) | **POST** /api/limitation/entity-manage | Manage entity limitation
+[**get_limitation**](LimitationApi.md#get_limitation) | **GET** /api/limitation/get | Get transaction limitations for an account
+[**manage_account_limitation**](LimitationApi.md#manage_account_limitation) | **POST** /api/limitation/account-manage | Manage account transaction limitations
+[**manage_entity_limitation**](LimitationApi.md#manage_entity_limitation) | **POST** /api/limitation/entity-manage | Manage entity transaction limitations
 
 
 # **get_limitation**
 > GetLimitationsResponse get_limitation(workspace_id, account_id, project_id=project_id)
 
-Get limitations for an account
+Get transaction limitations for an account
 
-Retrieves account limitations including spending limits, transaction limits, and other restrictions
+Retrieves account transaction restrictions (account-to-account and account-to-entity limitations)
 
 ### Example
 
@@ -48,10 +48,10 @@ with orbuculum_client.ApiClient(configuration) as api_client:
     api_instance = orbuculum_client.LimitationApi(api_client)
     workspace_id = 1 # int | Workspace ID
     account_id = 1 # int | Account ID to get limitations for
-    project_id = 1 # int | Project ID (optional filter) (optional)
+    project_id = 1 # int | Project label ID (optional filter) (optional)
 
     try:
-        # Get limitations for an account
+        # Get transaction limitations for an account
         api_response = api_instance.get_limitation(workspace_id, account_id, project_id=project_id)
         print("The response of LimitationApi->get_limitation:\n")
         pprint(api_response)
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **int**| Workspace ID | 
  **account_id** | **int**| Account ID to get limitations for | 
- **project_id** | **int**| Project ID (optional filter) | [optional] 
+ **project_id** | **int**| Project label ID (optional filter) | [optional] 
 
 ### Return type
 
@@ -100,9 +100,9 @@ Name | Type | Description  | Notes
 # **manage_account_limitation**
 > LimitationManagedResponse manage_account_limitation(manage_account_limitation_request)
 
-Manage account limitation
+Manage account transaction limitations
 
-Creates, updates, or removes account limitations such as spending limits and transaction restrictions
+Creates, updates, or removes transaction restrictions between accounts (send/receive permissions)
 
 ### Example
 
@@ -138,7 +138,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
     manage_account_limitation_request = orbuculum_client.ManageAccountLimitationRequest() # ManageAccountLimitationRequest | 
 
     try:
-        # Manage account limitation
+        # Manage account transaction limitations
         api_response = api_instance.manage_account_limitation(manage_account_limitation_request)
         print("The response of LimitationApi->manage_account_limitation:\n")
         pprint(api_response)
@@ -184,9 +184,9 @@ Name | Type | Description  | Notes
 # **manage_entity_limitation**
 > LimitationManagedResponse manage_entity_limitation(manage_entity_limitation_request)
 
-Manage entity limitation
+Manage entity transaction limitations
 
-Creates, updates, or removes entity-based limitations for transactions and operations
+Creates, updates, or removes transaction restrictions between account and entity (send/receive permissions)
 
 ### Example
 
@@ -222,7 +222,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
     manage_entity_limitation_request = orbuculum_client.ManageEntityLimitationRequest() # ManageEntityLimitationRequest | 
 
     try:
-        # Manage entity limitation
+        # Manage entity transaction limitations
         api_response = api_instance.manage_entity_limitation(manage_entity_limitation_request)
         print("The response of LimitationApi->manage_entity_limitation:\n")
         pprint(api_response)

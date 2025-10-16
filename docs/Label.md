@@ -8,8 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Label ID | [optional] 
 **name** | **str** | Label name | [optional] 
-**color** | **str** | Label color | [optional] 
-**description** | **str** | Label description | [optional] 
+**color** | **int** | Label color code | [optional] 
+**icon** | **int** | Label icon code | [optional] 
+**is_default** | **bool** | Whether this is a default label | [optional] 
 
 ## Example
 

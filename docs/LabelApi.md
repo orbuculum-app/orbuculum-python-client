@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_label**
-> SuccessResponse delete_label(workspace_id, id)
+> SuccessResponse delete_label(project_id, id)
 
 Delete an existing label
 
@@ -132,12 +132,12 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LabelApi(api_client)
-    workspace_id = 1 # int | Workspace ID
+    project_id = 1 # int | Workspace ID (parameter name is project_id)
     id = 1 # int | Label ID to delete
 
     try:
         # Delete an existing label
-        api_response = api_instance.delete_label(workspace_id, id)
+        api_response = api_instance.delete_label(project_id, id)
         print("The response of LabelApi->delete_label:\n")
         pprint(api_response)
     except Exception as e:
@@ -151,7 +151,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workspace_id** | **int**| Workspace ID | 
+ **project_id** | **int**| Workspace ID (parameter name is project_id) | 
  **id** | **int**| Label ID to delete | 
 
 ### Return type
@@ -219,7 +219,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LabelApi(api_client)
     workspace_id = 1 # int | Workspace ID
-    project_id = 1 # int | Project ID (optional, to get specific label) (optional)
+    project_id = 1 # int | Label ID (optional, to get specific label). Note: parameter name is 'project_id' but represents label_id in the system (optional)
 
     try:
         # Get label
@@ -238,7 +238,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **int**| Workspace ID | 
- **project_id** | **int**| Project ID (optional, to get specific label) | [optional] 
+ **project_id** | **int**| Label ID (optional, to get specific label). Note: parameter name is &#39;project_id&#39; but represents label_id in the system | [optional] 
 
 ### Return type
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_label**
-> SuccessResponse update_label(update_label_request)
+> UpdateLabelResponse update_label(update_label_request)
 
 Update label
 
@@ -280,8 +280,8 @@ Updates an existing label with new name, color, or description
 
 ```python
 import orbuculum_client
-from orbuculum_client.models.success_response import SuccessResponse
 from orbuculum_client.models.update_label_request import UpdateLabelRequest
+from orbuculum_client.models.update_label_response import UpdateLabelResponse
 from orbuculum_client.rest import ApiException
 from pprint import pprint
 
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessResponse**](SuccessResponse.md)
+[**UpdateLabelResponse**](UpdateLabelResponse.md)
 
 ### Authorization
 

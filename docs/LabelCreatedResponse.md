@@ -7,8 +7,8 @@ Response after creating a label
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**id** | **int** | Created label ID | [optional] 
 **message** | **str** | Success message | [optional] 
+**data** | [**LabelCreatedResponseData**](LabelCreatedResponseData.md) |  | [optional] 
 
 ## Example
 
