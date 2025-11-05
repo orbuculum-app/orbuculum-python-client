@@ -255,6 +255,7 @@ Class | Method | HTTP request | Description
  - [CreateEntityPermissionRequest](docs/CreateEntityPermissionRequest.md)
  - [CreateLabelPermissionRequest](docs/CreateLabelPermissionRequest.md)
  - [CreateLabelRequest](docs/CreateLabelRequest.md)
+ - [CreateTransaction409Response](docs/CreateTransaction409Response.md)
  - [CreateTransactionRequest](docs/CreateTransactionRequest.md)
  - [CustomTableInfo](docs/CustomTableInfo.md)
  - [CustomValue](docs/CustomValue.md)
@@ -303,6 +304,7 @@ Class | Method | HTTP request | Description
  - [UpdateLabelRequest](docs/UpdateLabelRequest.md)
  - [UpdateLabelResponse](docs/UpdateLabelResponse.md)
  - [UpdateLabelResponseData](docs/UpdateLabelResponseData.md)
+ - [UpdateTransaction409Response](docs/UpdateTransaction409Response.md)
  - [UpdateTransactionRequest](docs/UpdateTransactionRequest.md)
 
 

@@ -17,19 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AccountCreatedResponse(BaseModel):
+class CreateTransaction409Response(BaseModel):
     """
-    Response after successfully creating an account
+    CreateTransaction409Response
     """ # noqa: E501
-    status: StrictInt = Field(description="HTTP status code")
-    id: StrictInt = Field(description="Created account ID")
-    message: StrictStr = Field(description="Success message")
-    __properties: ClassVar[List[str]] = ["status", "id", "message"]
+    status: Optional[StrictInt] = None
+    error: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["status", "error"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +48,7 @@ class AccountCreatedResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AccountCreatedResponse from a JSON string"""
+        """Create an instance of CreateTransaction409Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +73,7 @@ class AccountCreatedResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AccountCreatedResponse from a dict"""
+        """Create an instance of CreateTransaction409Response from a dict"""
         if obj is None:
             return None
 
@@ -83,8 +82,7 @@ class AccountCreatedResponse(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "id": obj.get("id"),
-            "message": obj.get("message")
+            "error": obj.get("error")
         })
         return _obj
 

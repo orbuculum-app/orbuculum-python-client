@@ -177,6 +177,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - insufficient permissions |  -  |
 **404** | Account not found |  -  |
 **405** | Method not allowed |  -  |
+**409** | Conflict - duplicate apikey |  -  |
 **500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -433,6 +434,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - insufficient permissions |  -  |
 **404** | Transaction not found |  -  |
 **405** | Method not allowed |  -  |
+**409** | Conflict - duplicate apikey |  -  |
 **500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

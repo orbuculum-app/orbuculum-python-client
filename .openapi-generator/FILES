@@ -22,6 +22,7 @@ docs/CreateCustomRecordResponse.md
 docs/CreateEntityPermissionRequest.md
 docs/CreateLabelPermissionRequest.md
 docs/CreateLabelRequest.md
+docs/CreateTransaction409Response.md
 docs/CreateTransactionRequest.md
 docs/CustomApi.md
 docs/CustomTableInfo.md
@@ -76,6 +77,7 @@ docs/UpdateCustomRecordsResponse.md
 docs/UpdateLabelRequest.md
 docs/UpdateLabelResponse.md
 docs/UpdateLabelResponseData.md
+docs/UpdateTransaction409Response.md
 docs/UpdateTransactionRequest.md
 git_push.sh
 orbuculum_client/__init__.py
@@ -109,6 +111,7 @@ orbuculum_client/models/create_custom_record_response.py
 orbuculum_client/models/create_entity_permission_request.py
 orbuculum_client/models/create_label_permission_request.py
 orbuculum_client/models/create_label_request.py
+orbuculum_client/models/create_transaction409_response.py
 orbuculum_client/models/create_transaction_request.py
 orbuculum_client/models/custom_table_info.py
 orbuculum_client/models/custom_value.py
@@ -157,6 +160,7 @@ orbuculum_client/models/update_custom_records_response.py
 orbuculum_client/models/update_label_request.py
 orbuculum_client/models/update_label_response.py
 orbuculum_client/models/update_label_response_data.py
+orbuculum_client/models/update_transaction409_response.py
 orbuculum_client/models/update_transaction_request.py
 orbuculum_client/py.typed
 orbuculum_client/rest.py
@@ -184,6 +188,7 @@ test/test_create_custom_record_response.py
 test/test_create_entity_permission_request.py
 test/test_create_label_permission_request.py
 test/test_create_label_request.py
+test/test_create_transaction409_response.py
 test/test_create_transaction_request.py
 test/test_custom_api.py
 test/test_custom_table_info.py
@@ -238,5 +243,6 @@ test/test_update_custom_records_response.py
 test/test_update_label_request.py
 test/test_update_label_response.py
 test/test_update_label_response_data.py
+test/test_update_transaction409_response.py
 test/test_update_transaction_request.py
 tox.ini
