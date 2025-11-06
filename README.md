@@ -70,9 +70,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 ### For Developers
 
 - **[DOCKER.md](DOCKER.md)** - Docker-based development workflow ⚠️ **Required for all operations**
-- **[API_UPDATES.md](API_UPDATES.md)** - How to update client from API changes
-- **[PUBLISHING.md](PUBLISHING.md)** - Complete publishing guide to PyPI
-- **[QUICK_PUBLISH_GUIDE.md](QUICK_PUBLISH_GUIDE.md)** - Quick reference for publishing
+- **[UPDATE_AND_PUBLISH.md](UPDATE_AND_PUBLISH.md)** - Complete guide for API updates and publishing
 - **[VERSIONING.md](VERSIONING.md)** - Version management and SemVer policy
 
 ---
@@ -112,7 +110,7 @@ When the API specification changes:
 docker-compose run --rm updater
 ```
 
-See [API_UPDATES.md](API_UPDATES.md) for details.
+See [UPDATE_AND_PUBLISH.md](UPDATE_AND_PUBLISH.md) for details.
 
 ### 2. Run Tests
 
@@ -136,7 +134,7 @@ docker-compose run --rm publisher testpypi
 docker-compose run --rm publisher pypi
 ```
 
-See [PUBLISHING.md](PUBLISHING.md) for complete publishing workflow.
+See [UPDATE_AND_PUBLISH.md](UPDATE_AND_PUBLISH.md) for complete publishing workflow.
 
 ---
 
@@ -393,8 +391,7 @@ orbuculum-python-client/
 ├── pyproject.toml            # Package configuration
 ├── README.md                 # This file
 ├── DOCKER.md                 # Docker workflow (required reading)
-├── API_UPDATES.md            # API update process
-├── PUBLISHING.md             # Publishing guide
+├── UPDATE_AND_PUBLISH.md     # API updates and publishing guide
 ├── VERSIONING.md             # Version policy
 └── docker-compose.yml        # Docker services
 ```

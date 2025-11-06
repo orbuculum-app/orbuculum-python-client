@@ -176,41 +176,120 @@ else
 fi
 echo ""
 
-# Step 3.5: Sync version information
-echo -e "${YELLOW}[3.5/6] Syncing version information...${NC}"
+# Step 3.5: Interactive version management
+echo -e "${YELLOW}[3.5/6] Version Management${NC}"
 
 # Read current client version from pyproject.toml
 CLIENT_VERSION=$(grep -m1 '^version = ' "${WORKSPACE}/pyproject.toml" | cut -d'"' -f2)
 
-if [ -n "${CLIENT_VERSION}" ]; then
-    echo -e "  Client version from pyproject.toml: ${CLIENT_VERSION}"
-    echo -e "  API version from OpenAPI spec: ${API_VERSION}"
+if [ -z "${CLIENT_VERSION}" ]; then
+    echo -e "${RED}✗ Could not read version from pyproject.toml${NC}"
+    exit 1
+fi
+
+echo -e "  Current client version: ${GREEN}${CLIENT_VERSION}${NC}"
+echo -e "  API version from spec: ${GREEN}${API_VERSION}${NC}"
+echo ""
+
+# Function to calculate next version
+calculate_version() {
+    local current_version="$1"
+    local bump_type="$2"
     
-    # Update __init__.py with correct versions
-    sed -i.bak "s/__version__ = \".*\"/__version__ = \"${CLIENT_VERSION}\"/" "${WORKSPACE}/orbuculum_client/__init__.py"
+    IFS='.' read -r -a version_parts <<< "$current_version"
+    local major="${version_parts[0]}"
+    local minor="${version_parts[1]}"
+    local patch="${version_parts[2]}"
     
-    # Add __api_version__ and __api_supported__ after __version__ if they don't exist
-    if ! grep -q "__api_version__" "${WORKSPACE}/orbuculum_client/__init__.py"; then
-        sed -i.bak "/__version__ = /a\\
+    case "$bump_type" in
+        "major")
+            echo "$((major + 1)).0.0"
+            ;;
+        "minor")
+            echo "${major}.$((minor + 1)).0"
+            ;;
+        "patch")
+            echo "${major}.${minor}.$((patch + 1))"
+            ;;
+        *)
+            echo "$current_version"
+            ;;
+    esac
+}
+
+# Ask if user wants to update client version
+echo -e "${YELLOW}Do you want to update the client version?${NC}"
+echo "  [1] Keep current version (${CLIENT_VERSION})"
+echo "  [2] Patch bump ($(calculate_version "${CLIENT_VERSION}" "patch")) - Bug fixes"
+echo "  [3] Minor bump ($(calculate_version "${CLIENT_VERSION}" "minor")) - New features, backward-compatible"
+echo "  [4] Major bump ($(calculate_version "${CLIENT_VERSION}" "major")) - Breaking changes"
+echo "  [5] Enter version manually"
+echo ""
+read -p "Choose option [1-5]: " version_choice
+
+NEW_CLIENT_VERSION="${CLIENT_VERSION}"
+
+case "$version_choice" in
+    1)
+        echo -e "${GREEN}✓ Keeping current version: ${CLIENT_VERSION}${NC}"
+        ;;
+    2)
+        NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "patch")
+        echo -e "${GREEN}✓ Bumping to patch version: ${NEW_CLIENT_VERSION}${NC}"
+        ;;
+    3)
+        NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "minor")
+        echo -e "${GREEN}✓ Bumping to minor version: ${NEW_CLIENT_VERSION}${NC}"
+        ;;
+    4)
+        NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "major")
+        echo -e "${GREEN}✓ Bumping to major version: ${NEW_CLIENT_VERSION}${NC}"
+        ;;
+    5)
+        read -p "Enter new version (e.g., 1.2.3): " manual_version
+        if [[ "$manual_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            NEW_CLIENT_VERSION="$manual_version"
+            echo -e "${GREEN}✓ Setting version to: ${NEW_CLIENT_VERSION}${NC}"
+        else
+            echo -e "${RED}✗ Invalid version format. Keeping current version.${NC}"
+        fi
+        ;;
+    *)
+        echo -e "${YELLOW}⚠ Invalid choice. Keeping current version.${NC}"
+        ;;
+esac
+echo ""
+
+# Update pyproject.toml if version changed
+if [ "${NEW_CLIENT_VERSION}" != "${CLIENT_VERSION}" ]; then
+    echo -e "${YELLOW}Updating version in files...${NC}"
+    sed -i.bak "s/^version = \".*\"/version = \"${NEW_CLIENT_VERSION}\"/" "${WORKSPACE}/pyproject.toml"
+    rm -f "${WORKSPACE}/pyproject.toml.bak"
+    echo -e "${GREEN}✓ Updated pyproject.toml${NC}"
+fi
+
+# Update __init__.py with all version information
+sed -i.bak "s/__version__ = \".*\"/__version__ = \"${NEW_CLIENT_VERSION}\"/" "${WORKSPACE}/orbuculum_client/__init__.py"
+
+# Add __api_version__ and __api_supported__ after __version__ if they don't exist
+if ! grep -q "__api_version__" "${WORKSPACE}/orbuculum_client/__init__.py"; then
+    sed -i.bak "/__version__ = /a\\
 __api_version__ = \"${API_VERSION}\"\\
 __api_supported__ = \"${API_VERSION}\"
 " "${WORKSPACE}/orbuculum_client/__init__.py"
-    else
-        # If they exist, update them
-        sed -i.bak "s/__api_version__ = \".*\"/__api_version__ = \"${API_VERSION}\"/" "${WORKSPACE}/orbuculum_client/__init__.py"
-        sed -i.bak "s/__api_supported__ = \".*\"/__api_supported__ = \"${API_VERSION}\"/" "${WORKSPACE}/orbuculum_client/__init__.py"
-    fi
-    
-    # Remove backup files
-    rm -f "${WORKSPACE}/orbuculum_client/__init__.py.bak"
-    
-    echo -e "${GREEN}✓ Version information synchronized${NC}"
-    echo -e "  __version__ = \"${CLIENT_VERSION}\""
-    echo -e "  __api_version__ = \"${API_VERSION}\""
-    echo -e "  __api_supported__ = \"${API_VERSION}\""
 else
-    echo -e "${YELLOW}⚠ Warning: Could not read version from pyproject.toml${NC}"
+    # If they exist, update them
+    sed -i.bak "s/__api_version__ = \".*\"/__api_version__ = \"${API_VERSION}\"/" "${WORKSPACE}/orbuculum_client/__init__.py"
+    sed -i.bak "s/__api_supported__ = \".*\"/__api_supported__ = \"${API_VERSION}\"/" "${WORKSPACE}/orbuculum_client/__init__.py"
 fi
+
+# Remove backup files
+rm -f "${WORKSPACE}/orbuculum_client/__init__.py.bak"
+
+echo -e "${GREEN}✓ Version information synchronized${NC}"
+echo -e "  __version__ = \"${NEW_CLIENT_VERSION}\""
+echo -e "  __api_version__ = \"${API_VERSION}\""
+echo -e "  __api_supported__ = \"${API_VERSION}\""
 echo ""
 
 # Step 3.6: Update README.md API sections
@@ -291,7 +370,9 @@ echo ""
 # Step 5: Summary
 echo -e "${YELLOW}[5/6] Update Summary${NC}"
 echo -e "${GREEN}✓ OpenAPI specification downloaded from: ${OPENAPI_JSON_URL}${NC}"
-echo -e "${GREEN}✓ Client code regenerated for version: ${API_VERSION}${NC}"
+echo -e "${GREEN}✓ Client code regenerated${NC}"
+echo -e "${GREEN}✓ Client version: ${NEW_CLIENT_VERSION}${NC}"
+echo -e "${GREEN}✓ API version: ${API_VERSION}${NC}"
 echo -e "${GREEN}✓ Backup available at: ${BACKUP_DIR}${NC}"
 echo ""
 
@@ -301,22 +382,21 @@ echo -e "${GREEN}================================${NC}"
 echo "1. Review the changes:"
 echo "   git diff"
 echo ""
-echo "2. Check version synchronization:"
-echo "   grep -A2 '__version__' orbuculum_client/__init__.py"
-echo "   grep '^version' pyproject.toml"
-echo ""
-echo "3. Update client version in pyproject.toml if this is a new release"
-echo "   (API version is already synced automatically)"
-echo ""
-echo "4. Test the client:"
+echo "2. Test the client:"
 echo "   docker-compose run --rm dev pytest"
 echo ""
-echo "5. Build the package:"
-echo "   docker-compose run --rm builder"
-echo ""
-echo "6. If everything looks good, commit the changes:"
+echo "3. If tests pass, commit the changes:"
 echo "   git add ."
-echo "   git commit -m \"Update API client to version ${API_VERSION}\""
+if [ "${NEW_CLIENT_VERSION}" != "${CLIENT_VERSION}" ]; then
+    echo "   git commit -m \"Release ${NEW_CLIENT_VERSION} - Supports API ${API_VERSION}\""
+else
+    echo "   git commit -m \"Update to API ${API_VERSION}\""
+fi
+echo "   git push"
+echo ""
+echo "4. To publish the new version (if client version changed):"
+echo "   docker-compose run --rm publisher testpypi  # Test first"
+echo "   docker-compose run --rm publisher pypi      # Then production"
 echo ""
 echo -e "${YELLOW}If something went wrong, restore from backup:${NC}"
 echo "   rm -rf orbuculum_client"
