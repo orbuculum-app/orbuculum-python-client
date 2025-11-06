@@ -107,7 +107,11 @@ See [DOCKER.md](DOCKER.md) for complete details.
 When the API specification changes:
 
 ```bash
+# Update from production API (default)
 docker-compose run --rm updater
+
+# Or from custom URL (staging, dev, local)
+docker-compose run --rm updater -u https://dev.orbuculum.app/swagger/json
 ```
 
 See [UPDATE_AND_PUBLISH.md](UPDATE_AND_PUBLISH.md) for details.

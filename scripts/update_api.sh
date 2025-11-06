@@ -8,21 +8,59 @@ set -e  # Exit on any error
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Configuration
-OPENAPI_JSON_URL="https://s1.orbuculum.app/swagger/json"
+# Default configuration
+DEFAULT_OPENAPI_URL="https://s1.orbuculum.app/swagger/json"
+OPENAPI_JSON_URL="${DEFAULT_OPENAPI_URL}"
 SPEC_FILE="/tmp/orbuculum-openapi.json"
 BACKUP_DIR="/workspace/backups/backup_$(date +%Y%m%d_%H%M%S)"
 WORKSPACE="/workspace"
 
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --spec-url|-u)
+            OPENAPI_JSON_URL="$2"
+            shift 2
+            ;;
+        -h|--help)
+            echo "Usage: $0 [OPTIONS]"
+            echo ""
+            echo "Update Orbuculum Python client from OpenAPI specification"
+            echo ""
+            echo "Options:"
+            echo "  --spec-url, -u URL    Custom URL to download OpenAPI spec from"
+            echo "                        Default: ${DEFAULT_OPENAPI_URL}"
+            echo "  -h, --help           Show this help message"
+            echo ""
+            echo "Examples:"
+            echo "  $0                                    # Use default URL"
+            echo "  $0 --spec-url https://dev.example.com/swagger/json"
+            echo "  $0 -u http://localhost:8080/openapi.json"
+            echo ""
+            exit 0
+            ;;
+        *)
+            echo -e "${RED}Unknown argument: $1${NC}"
+            echo "Use --help for usage information"
+            exit 1
+            ;;
+    esac
+done
+
 echo -e "${GREEN}================================${NC}"
 echo -e "${GREEN}Orbuculum API Client Update Tool${NC}"
 echo -e "${GREEN}================================${NC}"
+if [[ "${OPENAPI_JSON_URL}" != "${DEFAULT_OPENAPI_URL}" ]]; then
+    echo -e "${BLUE}Using custom spec URL${NC}"
+fi
 echo ""
 
 # Step 1: Download the latest OpenAPI specification
 echo -e "${YELLOW}[1/5] Downloading latest OpenAPI specification...${NC}"
+echo -e "  Source: ${OPENAPI_JSON_URL}"
 if curl -f -s -o "${SPEC_FILE}" "${OPENAPI_JSON_URL}"; then
     echo -e "${GREEN}✓ Downloaded successfully${NC}"
     

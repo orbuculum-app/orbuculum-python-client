@@ -10,6 +10,9 @@ Complete guide for updating the Orbuculum Python client and publishing to PyPI.
 # Script will show current versions and ask if you want to bump client version
 docker-compose run --rm updater
 
+# Or from custom URL (staging, dev, local):
+# docker-compose run --rm updater -u https://dev.orbuculum.app/swagger/json
+
 # 2. Review changes
 git diff
 
@@ -126,11 +129,18 @@ The client is automatically generated from the [OpenAPI specification](https://s
 ### Automatic Update (Recommended)
 
 ```bash
+# Update from default production API
 docker-compose run --rm updater
+
+# Update from custom URL (e.g., staging, dev, local)
+docker-compose run --rm updater --spec-url https://dev.orbuculum.app/swagger/json
+
+# Short form
+docker-compose run --rm updater -u http://localhost:8080/openapi.json
 ```
 
 This command:
-1. Downloads latest OpenAPI spec from `https://s1.orbuculum.app/swagger/json`
+1. Downloads latest OpenAPI spec from specified URL (default: `https://s1.orbuculum.app/swagger/json`)
 2. Creates automatic backup in `backups/backup_YYYYMMDD_HHMMSS/`
 3. Regenerates client code
 4. **Asks interactively** if you want to update client version:
@@ -139,6 +149,25 @@ This command:
    - Automatically updates both `pyproject.toml` and `orbuculum_client/__init__.py`
 5. Updates README.md (API Endpoints and Models sections)
 6. Verifies generated code
+
+#### Custom Spec URL Examples
+
+```bash
+# Production (default)
+docker-compose run --rm updater
+
+# Staging environment
+docker-compose run --rm updater --spec-url https://staging.orbuculum.app/swagger/json
+
+# Development environment
+docker-compose run --rm updater -u https://dev.orbuculum.app/swagger/json
+
+# Local development server
+docker-compose run --rm updater -u http://localhost:3000/openapi.json
+
+# Local file (if mounted in Docker)
+docker-compose run --rm updater -u file:///workspace/custom-spec.json
+```
 
 ### What Gets Regenerated
 
