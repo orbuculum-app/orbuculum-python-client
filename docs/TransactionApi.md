@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 Create a new transaction
 
-Creates a new transaction in the system with specified amount and details
+Creates a new transaction in the system. Auto-calculation feature: at least one amount (sender_amount or receiver_amount) must be provided. If only one is provided, the other will be calculated automatically using the exchange rate for the transaction date.
 
 ### Example
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Transaction created successfully |  -  |
+**201** | Transaction created successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden - insufficient permissions |  -  |
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 Update an existing transaction
 
-Updates an existing transaction with new amount, description, or other details
+Updates an existing transaction with new amount, description, or other details. Auto-calculation feature (XOR logic): if only one amount is updated, the other will be recalculated automatically using the exchange rate. If both amounts are updated, no auto-calculation occurs.
 
 ### Example
 

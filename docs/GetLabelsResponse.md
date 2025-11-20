@@ -1,13 +1,13 @@
 # GetLabelsResponse
 
-Response containing label data
+Response containing label data (array of labels or single label object)
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**data** | [**List[Label]**](Label.md) | Array of labels | [optional] 
+**data** | [**GetLabelsResponseData**](GetLabelsResponseData.md) |  | [optional] 
 
 ## Example
 

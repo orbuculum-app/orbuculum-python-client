@@ -6,6 +6,7 @@ if __import__("typing").TYPE_CHECKING:
     from orbuculum_client.api.account_permissions_api import AccountPermissionsApi
     from orbuculum_client.api.authentication_api import AuthenticationApi
     from orbuculum_client.api.custom_api import CustomApi
+    from orbuculum_client.api.entity_api import EntityApi
     from orbuculum_client.api.entity_permissions_api import EntityPermissionsApi
     from orbuculum_client.api.label_api import LabelApi
     from orbuculum_client.api.label_permissions_api import LabelPermissionsApi
@@ -23,6 +24,7 @@ from orbuculum_client.api.account_api import AccountApi
 from orbuculum_client.api.account_permissions_api import AccountPermissionsApi
 from orbuculum_client.api.authentication_api import AuthenticationApi
 from orbuculum_client.api.custom_api import CustomApi
+from orbuculum_client.api.entity_api import EntityApi
 from orbuculum_client.api.entity_permissions_api import EntityPermissionsApi
 from orbuculum_client.api.label_api import LabelApi
 from orbuculum_client.api.label_permissions_api import LabelPermissionsApi

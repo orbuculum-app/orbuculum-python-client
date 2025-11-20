@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_account**
-> SuccessResponse delete_account(workspace_id, id)
+> AccountDeletedResponse delete_account(workspace_id, id)
 
 Delete an existing account
 
@@ -193,7 +193,7 @@ Deletes an existing account from the system. This action cannot be undone.
 
 ```python
 import orbuculum_client
-from orbuculum_client.models.success_response import SuccessResponse
+from orbuculum_client.models.account_deleted_response import AccountDeletedResponse
 from orbuculum_client.rest import ApiException
 from pprint import pprint
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessResponse**](SuccessResponse.md)
+[**AccountDeletedResponse**](AccountDeletedResponse.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_account**
-> SuccessResponse update_account(update_account_request)
+> AccountUpdatedResponse update_account(update_account_request)
 
 Update an existing account
 
@@ -364,7 +364,7 @@ Updates an existing account with new information such as name, currency, commiss
 
 ```python
 import orbuculum_client
-from orbuculum_client.models.success_response import SuccessResponse
+from orbuculum_client.models.account_updated_response import AccountUpdatedResponse
 from orbuculum_client.models.update_account_request import UpdateAccountRequest
 from orbuculum_client.rest import ApiException
 from pprint import pprint
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessResponse**](SuccessResponse.md)
+[**AccountUpdatedResponse**](AccountUpdatedResponse.md)
 
 ### Authorization
 

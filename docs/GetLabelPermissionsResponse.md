@@ -7,7 +7,7 @@ Response containing label permissions
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**data** | [**List[LabelPermission]**](LabelPermission.md) | Array of label permissions | [optional] 
+**data** | [**GetLabelPermissionsResponseData**](GetLabelPermissionsResponseData.md) |  | [optional] 
 
 ## Example
 

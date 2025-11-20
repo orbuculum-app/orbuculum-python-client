@@ -7,7 +7,7 @@ Response containing account permissions
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**data** | [**List[AccountPermission]**](AccountPermission.md) | Array of account permissions | [optional] 
+**data** | [**GetAccountPermissionsResponseData**](GetAccountPermissionsResponseData.md) |  | [optional] 
 
 ## Example
 

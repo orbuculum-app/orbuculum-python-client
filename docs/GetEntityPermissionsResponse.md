@@ -1,13 +1,13 @@
 # GetEntityPermissionsResponse
 
-Response containing entity permissions
+Response containing entity permissions grouped by type
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**data** | [**List[EntityPermission]**](EntityPermission.md) | Array of entity permissions | [optional] 
+**data** | [**GetEntityPermissionsResponseData**](GetEntityPermissionsResponseData.md) |  | [optional] 
 
 ## Example
 

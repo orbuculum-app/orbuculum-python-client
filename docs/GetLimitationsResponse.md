@@ -7,8 +7,7 @@ Response containing limitation data
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**data** | [**List[Limitation]**](Limitation.md) | Array of limitations | [optional] 
-**total** | **int** | Total number of limitations | [optional] 
+**data** | [**GetLimitationsResponseData**](GetLimitationsResponseData.md) |  | [optional] 
 
 ## Example
 

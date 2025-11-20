@@ -216,10 +216,15 @@ Class | Method | HTTP request | Description
 *AccountPermissionsApi* | [**get_account_permissions**](docs/AccountPermissionsApi.md#get_account_permissions) | **GET** /api/permission/account | Get account permissions
 *AuthenticationApi* | [**login**](docs/AuthenticationApi.md#login) | **POST** /api/auth/login | Login and get JWT token
 *CustomApi* | [**create_custom_record**](docs/CustomApi.md#create_custom_record) | **POST** /api/custom/create | Create a record in custom table
-*CustomApi* | [**delete_custom_records**](docs/CustomApi.md#delete_custom_records) | **POST** /api/custom/delete | Delete records from custom table
+*CustomApi* | [**delete_custom_records**](docs/CustomApi.md#delete_custom_records) | **POST** /api/custom/delete | Delete record from custom table by ID
 *CustomApi* | [**get_custom_tables**](docs/CustomApi.md#get_custom_tables) | **GET** /api/custom/tables | Get list of custom tables
-*CustomApi* | [**read_custom_records**](docs/CustomApi.md#read_custom_records) | **GET** /api/custom/read | Read records from custom table
-*CustomApi* | [**update_custom_records**](docs/CustomApi.md#update_custom_records) | **POST** /api/custom/update | Update records in custom table
+*CustomApi* | [**read_custom_records**](docs/CustomApi.md#read_custom_records) | **POST** /api/custom/read | Read records from custom table with flexible filtering
+*CustomApi* | [**update_custom_records**](docs/CustomApi.md#update_custom_records) | **POST** /api/custom/update | Update record in custom table by ID
+*EntityApi* | [**activate_entity**](docs/EntityApi.md#activate_entity) | **POST** /api/entity/activate | Activate entity
+*EntityApi* | [**create_entity**](docs/EntityApi.md#create_entity) | **POST** /api/entity/create | Create entity
+*EntityApi* | [**delete_entity**](docs/EntityApi.md#delete_entity) | **POST** /api/entity/delete | Delete entity
+*EntityApi* | [**get_entities**](docs/EntityApi.md#get_entities) | **GET** /api/entity/get | Get entities
+*EntityApi* | [**update_entity**](docs/EntityApi.md#update_entity) | **POST** /api/entity/update | Update entity
 *EntityPermissionsApi* | [**create_entity_permission**](docs/EntityPermissionsApi.md#create_entity_permission) | **POST** /api/permission/entity-create | Create entity permission
 *EntityPermissionsApi* | [**delete_entity_permission**](docs/EntityPermissionsApi.md#delete_entity_permission) | **DELETE** /api/permission/entity-delete | Delete entity permission
 *EntityPermissionsApi* | [**get_entity_permissions**](docs/EntityPermissionsApi.md#get_entity_permissions) | **GET** /api/permission/entity | Get entity permissions
@@ -244,8 +249,16 @@ Class | Method | HTTP request | Description
 
  - [Account](docs/Account.md)
  - [AccountCreatedResponse](docs/AccountCreatedResponse.md)
+ - [AccountCreatedResponseData](docs/AccountCreatedResponseData.md)
+ - [AccountDeletedResponse](docs/AccountDeletedResponse.md)
+ - [AccountDeletedResponseData](docs/AccountDeletedResponseData.md)
  - [AccountPermission](docs/AccountPermission.md)
+ - [AccountUpdatedResponse](docs/AccountUpdatedResponse.md)
+ - [AccountUpdatedResponseData](docs/AccountUpdatedResponseData.md)
  - [ActivateAccountRequest](docs/ActivateAccountRequest.md)
+ - [ActivateEntity200Response](docs/ActivateEntity200Response.md)
+ - [ActivateEntity200ResponseData](docs/ActivateEntity200ResponseData.md)
+ - [ActivateEntityRequest](docs/ActivateEntityRequest.md)
  - [AddCommissionRequest](docs/AddCommissionRequest.md)
  - [ColumnInfo](docs/ColumnInfo.md)
  - [CommissionCreatedResponse](docs/CommissionCreatedResponse.md)
@@ -254,16 +267,28 @@ Class | Method | HTTP request | Description
  - [CreateAccountRequest](docs/CreateAccountRequest.md)
  - [CreateCustomRecordRequest](docs/CreateCustomRecordRequest.md)
  - [CreateCustomRecordResponse](docs/CreateCustomRecordResponse.md)
+ - [CreateEntity201Response](docs/CreateEntity201Response.md)
+ - [CreateEntity201ResponseData](docs/CreateEntity201ResponseData.md)
  - [CreateEntityPermissionRequest](docs/CreateEntityPermissionRequest.md)
+ - [CreateEntityRequest](docs/CreateEntityRequest.md)
  - [CreateLabelPermissionRequest](docs/CreateLabelPermissionRequest.md)
  - [CreateLabelRequest](docs/CreateLabelRequest.md)
  - [CreateTransaction409Response](docs/CreateTransaction409Response.md)
  - [CreateTransactionRequest](docs/CreateTransactionRequest.md)
+ - [CustomRecordsDataWithPagination](docs/CustomRecordsDataWithPagination.md)
+ - [CustomTableFilter](docs/CustomTableFilter.md)
+ - [CustomTableFilterGroup](docs/CustomTableFilterGroup.md)
+ - [CustomTableFilterValue](docs/CustomTableFilterValue.md)
+ - [CustomTableFilterValueOneOfInner](docs/CustomTableFilterValueOneOfInner.md)
  - [CustomTableInfo](docs/CustomTableInfo.md)
+ - [CustomTableOrderBy](docs/CustomTableOrderBy.md)
  - [CustomValue](docs/CustomValue.md)
  - [DeleteCustomRecordsRequest](docs/DeleteCustomRecordsRequest.md)
  - [DeleteCustomRecordsResponse](docs/DeleteCustomRecordsResponse.md)
+ - [DeleteEntity200Response](docs/DeleteEntity200Response.md)
+ - [DeleteEntity200ResponseData](docs/DeleteEntity200ResponseData.md)
  - [DeleteEntityPermissionRequest](docs/DeleteEntityPermissionRequest.md)
+ - [DeleteEntityRequest](docs/DeleteEntityRequest.md)
  - [DeleteLabelPermissionRequest](docs/DeleteLabelPermissionRequest.md)
  - [DeleteTransactionRequest](docs/DeleteTransactionRequest.md)
  - [EditAccountPermissionRequest](docs/EditAccountPermissionRequest.md)
@@ -274,14 +299,27 @@ Class | Method | HTTP request | Description
  - [ErrorResponse403](docs/ErrorResponse403.md)
  - [ErrorResponse404](docs/ErrorResponse404.md)
  - [ErrorResponse405](docs/ErrorResponse405.md)
+ - [ErrorResponse409](docs/ErrorResponse409.md)
  - [ErrorResponse500](docs/ErrorResponse500.md)
  - [GetAccountPermissionsResponse](docs/GetAccountPermissionsResponse.md)
+ - [GetAccountPermissionsResponseData](docs/GetAccountPermissionsResponseData.md)
+ - [GetAccountPermissionsResponseDataPermissions](docs/GetAccountPermissionsResponseDataPermissions.md)
  - [GetAccountResponse](docs/GetAccountResponse.md)
+ - [GetAccountResponseData](docs/GetAccountResponseData.md)
  - [GetCustomTablesResponse](docs/GetCustomTablesResponse.md)
+ - [GetEntities200Response](docs/GetEntities200Response.md)
+ - [GetEntities200ResponseData](docs/GetEntities200ResponseData.md)
+ - [GetEntities200ResponseDataOneOfInner](docs/GetEntities200ResponseDataOneOfInner.md)
  - [GetEntityPermissionsResponse](docs/GetEntityPermissionsResponse.md)
+ - [GetEntityPermissionsResponseData](docs/GetEntityPermissionsResponseData.md)
+ - [GetEntityPermissionsResponseDataPermissions](docs/GetEntityPermissionsResponseDataPermissions.md)
  - [GetLabelPermissionsResponse](docs/GetLabelPermissionsResponse.md)
+ - [GetLabelPermissionsResponseData](docs/GetLabelPermissionsResponseData.md)
+ - [GetLabelPermissionsResponseDataPermissions](docs/GetLabelPermissionsResponseDataPermissions.md)
  - [GetLabelsResponse](docs/GetLabelsResponse.md)
+ - [GetLabelsResponseData](docs/GetLabelsResponseData.md)
  - [GetLimitationsResponse](docs/GetLimitationsResponse.md)
+ - [GetLimitationsResponseData](docs/GetLimitationsResponseData.md)
  - [Label](docs/Label.md)
  - [LabelCreatedResponse](docs/LabelCreatedResponse.md)
  - [LabelCreatedResponseData](docs/LabelCreatedResponseData.md)
@@ -290,12 +328,16 @@ Class | Method | HTTP request | Description
  - [LimitationManagedResponse](docs/LimitationManagedResponse.md)
  - [LoginRequest](docs/LoginRequest.md)
  - [LoginResponse](docs/LoginResponse.md)
+ - [LoginResponseData](docs/LoginResponseData.md)
+ - [LoginResponseDataUser](docs/LoginResponseDataUser.md)
  - [ManageAccountLimitationRequest](docs/ManageAccountLimitationRequest.md)
  - [ManageEntityLimitationRequest](docs/ManageEntityLimitationRequest.md)
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PermissionCreatedResponse](docs/PermissionCreatedResponse.md)
+ - [ReadCustomRecordsRequest](docs/ReadCustomRecordsRequest.md)
  - [ReadCustomRecordsResponse](docs/ReadCustomRecordsResponse.md)
  - [SuccessResponse](docs/SuccessResponse.md)
+ - [SuccessResponseData](docs/SuccessResponseData.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionCreatedData](docs/TransactionCreatedData.md)
  - [TransactionCreatedResponse](docs/TransactionCreatedResponse.md)
@@ -303,6 +345,9 @@ Class | Method | HTTP request | Description
  - [UpdateAccountRequest](docs/UpdateAccountRequest.md)
  - [UpdateCustomRecordsRequest](docs/UpdateCustomRecordsRequest.md)
  - [UpdateCustomRecordsResponse](docs/UpdateCustomRecordsResponse.md)
+ - [UpdateEntity200Response](docs/UpdateEntity200Response.md)
+ - [UpdateEntity200ResponseData](docs/UpdateEntity200ResponseData.md)
+ - [UpdateEntityRequest](docs/UpdateEntityRequest.md)
  - [UpdateLabelRequest](docs/UpdateLabelRequest.md)
  - [UpdateLabelResponse](docs/UpdateLabelResponse.md)
  - [UpdateLabelResponseData](docs/UpdateLabelResponseData.md)

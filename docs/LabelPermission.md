@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **label_name** | **str** | Label name | [optional] 
 **can_read** | **bool** | Read permission | [optional] 
 **can_write** | **bool** | Write permission | [optional] 
-**can_manage** | **bool** | Management permission | [optional] 
+**can_manage** | **bool** | Full access | [optional] 
 
 ## Example
 

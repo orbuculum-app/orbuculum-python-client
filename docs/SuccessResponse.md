@@ -7,7 +7,7 @@ Standard success response format
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | 
-**message** | **str** | Success message | 
+**data** | [**SuccessResponseData**](SuccessResponseData.md) |  | 
 
 ## Example
 

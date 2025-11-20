@@ -257,6 +257,7 @@ Name | Type | Description  | Notes
 **200** | Label permissions retrieved successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
+**404** | Workspace not found |  -  |
 **500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

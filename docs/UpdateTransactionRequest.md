@@ -1,6 +1,6 @@
 # UpdateTransactionRequest
 
-Request body for updating an existing transaction
+Request body for updating transaction. All fields optional except workspace_id and id.
 
 ## Properties
 
@@ -10,13 +10,14 @@ Name | Type | Description | Notes
 **id** | **int** | Transaction ID to update | 
 **sender_account_id** | **int** | Sender account ID | [optional] 
 **receiver_account_id** | **int** | Receiver account ID | [optional] 
-**sender_amount** | **str** | Sender amount | [optional] 
-**receiver_amount** | **str** | Receiver amount | [optional] 
+**sender_amount** | **str** | Sender amount. If updated alone, receiver_amount will be recalculated. | [optional] 
+**receiver_amount** | **str** | Receiver amount. If updated alone, sender_amount will be recalculated. | [optional] 
 **dt** | **str** | Transaction date and time | [optional] 
+**project_id** | **int** | Project ID (HISTORICAL: maps to label_id in DB) | [optional] 
 **comment** | **str** | Transaction comment | [optional] 
 **description** | **str** | Transaction description | [optional] 
-**project_id** | **int** | Project ID | [optional] 
 **done** | **str** | Transaction status (true/false) | [optional] 
+**commission_applied** | **bool** | Whether commission should be applied | [optional] 
 
 ## Example
 

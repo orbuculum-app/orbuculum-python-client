@@ -282,7 +282,7 @@ echo ""
 # Step 7: Upload to PyPI/TestPyPI
 echo -e "${YELLOW}[7/8] Uploading to ${TARGET}...${NC}"
 if [[ "$DRY_RUN" == true ]]; then
-    echo -e "${BLUE}[DRY RUN] Would run: twine upload --repository ${REPO_NAME} dist/*${NC}"
+    echo -e "${BLUE}[DRY RUN] Would run: twine upload --verbose --repository ${REPO_NAME} dist/*${NC}"
 else
     if ! command -v twine &> /dev/null; then
         echo -e "${RED}✗ twine not found${NC}"
@@ -290,12 +290,14 @@ else
         exit 1
     fi
     
-    if twine upload --repository "$REPO_NAME" "${DIST_DIR}"/*; then
+    # Always use --verbose to get detailed error messages
+    if twine upload --verbose --repository "$REPO_NAME" "${DIST_DIR}"/*; then
         echo -e "${GREEN}✓ Package uploaded successfully${NC}"
         echo -e "${GREEN}Project page: ${PACKAGE_URL_BASE}/orbuculum/${NC}"
         echo -e "${GREEN}This version: ${PACKAGE_URL_BASE}/orbuculum/${VERSION}/${NC}"
     else
         echo -e "${RED}✗ Upload failed${NC}"
+        echo -e "${YELLOW}Check the detailed error output above for more information${NC}"
         exit 1
     fi
 fi

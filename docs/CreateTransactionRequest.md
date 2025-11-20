@@ -1,6 +1,6 @@
 # CreateTransactionRequest
 
-Request body for creating a new transaction
+Request body for creating a new transaction. At least one amount (sender_amount or receiver_amount) must be provided.
 
 ## Properties
 
@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **workspace_id** | **int** | Workspace ID | 
 **sender_account_id** | **int** | Sender account ID | 
 **receiver_account_id** | **int** | Receiver account ID | 
-**sender_amount** | **str** | Sender amount | 
-**receiver_amount** | **str** | Receiver amount | 
+**sender_amount** | **str** | Sender amount. Optional if receiver_amount is provided. | [optional] 
+**receiver_amount** | **str** | Receiver amount. Optional if sender_amount is provided. | [optional] 
 **dt** | **str** | Transaction date and time | 
-**project_id** | **int** | Project ID | 
+**project_id** | **int** | Project ID (HISTORICAL: maps to label_id in DB) | 
 **comment** | **str** | Transaction comment | [optional] 
 **description** | **str** | Transaction description | [optional] 
 **done** | **str** | Transaction status (true/false) | [optional] 

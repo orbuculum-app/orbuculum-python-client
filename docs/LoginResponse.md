@@ -7,7 +7,7 @@ Response after successful authentication
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | 
-**token** | **str** | JWT token for API authentication | 
+**data** | [**LoginResponseData**](LoginResponseData.md) |  | 
 
 ## Example
 

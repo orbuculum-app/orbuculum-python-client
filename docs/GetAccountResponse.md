@@ -1,13 +1,13 @@
 # GetAccountResponse
 
-Response containing account data
+Response containing account data (array of accounts or single account object)
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
-**data** | [**List[Account]**](Account.md) | Array of accounts | [optional] 
+**data** | [**GetAccountResponseData**](GetAccountResponseData.md) |  | [optional] 
 
 ## Example
 

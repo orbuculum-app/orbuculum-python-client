@@ -1,14 +1,13 @@
 # ReadCustomRecordsResponse
 
-Response containing custom table records
+Response containing custom table records with pagination info
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | 
-**message** | **str** | Response message | 
-**data** | **List[Dict[str, CustomValue]]** | Array of records (all columns from the table). Each record is a dynamic object with columns from your custom table. | 
+**data** | [**CustomRecordsDataWithPagination**](CustomRecordsDataWithPagination.md) |  | 
 
 ## Example
 

@@ -7,19 +7,22 @@ Complete guide for updating the Orbuculum Python client and publishing to PyPI.
 ### API Update Process
 ```bash
 # 1. Update API client from latest spec
-# Script will show current versions and ask if you want to bump client version
+# Script will ask about version and run tests automatically
 docker-compose run --rm updater
 
 # Or from custom URL (staging, dev, local):
 # docker-compose run --rm updater -u https://dev.orbuculum.app/swagger/json
 
+# Skip tests (faster, for quick iterations):
+# docker-compose run --rm updater --skip-tests
+
+# Keep version + skip tests (no prompts):
+# docker-compose run --rm updater -k -s
+
 # 2. Review changes
 git diff
 
-# 3. Test
-docker-compose run --rm dev pytest
-
-# 4. Commit
+# 3. Commit (tests already passed!)
 git add .
 git commit -m "Update to API 0.X.0"  # or "Release 1.X.0 - Supports API 0.Y.0"
 git push
@@ -135,8 +138,8 @@ docker-compose run --rm updater
 # Update from custom URL (e.g., staging, dev, local)
 docker-compose run --rm updater --spec-url https://dev.orbuculum.app/swagger/json
 
-# Short form
-docker-compose run --rm updater -u http://localhost:8080/openapi.json
+# Short form (local server on host machine)
+docker-compose run --rm updater -u http://host.docker.internal:8080/openapi.json
 ```
 
 This command:
@@ -149,25 +152,39 @@ This command:
    - Automatically updates both `pyproject.toml` and `orbuculum_client/__init__.py`
 5. Updates README.md (API Endpoints and Models sections)
 6. Verifies generated code
+7. **Runs tests automatically** (can be skipped with `--skip-tests`)
 
-#### Custom Spec URL Examples
+#### Usage Examples
 
 ```bash
-# Production (default)
+# Standard update (interactive version prompt, runs tests)
 docker-compose run --rm updater
 
-# Staging environment
-docker-compose run --rm updater --spec-url https://staging.orbuculum.app/swagger/json
+# Skip tests for faster iteration
+docker-compose run --rm updater --skip-tests
 
-# Development environment
+# Keep version, run tests
+docker-compose run --rm updater --keep-version
+
+# Keep version, skip tests (fastest, for quick checks)
+docker-compose run --rm updater -k -s
+
+# Custom URL examples
+docker-compose run --rm updater --spec-url https://staging.orbuculum.app/swagger/json
 docker-compose run --rm updater -u https://dev.orbuculum.app/swagger/json
 
-# Local development server
-docker-compose run --rm updater -u http://localhost:3000/openapi.json
+# Local development server (from host machine)
+docker-compose run --rm updater -u http://host.docker.internal:3000/openapi.json
+docker-compose run --rm updater -u http://host.docker.internal:8081/swagger/json
+
+# Combination: custom URL, keep version, skip tests
+docker-compose run --rm updater -k -s -u http://host.docker.internal:8081/swagger/json
 
 # Local file (if mounted in Docker)
 docker-compose run --rm updater -u file:///workspace/custom-spec.json
 ```
+
+> **Note:** Use `host.docker.internal` instead of `localhost` to access services running on your host machine from inside Docker containers. This works on all platforms (macOS, Windows, Linux).
 
 ### What Gets Regenerated
 

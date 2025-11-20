@@ -5,10 +5,10 @@ All URIs are relative to *https://s1.orbuculum.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_custom_record**](CustomApi.md#create_custom_record) | **POST** /api/custom/create | Create a record in custom table
-[**delete_custom_records**](CustomApi.md#delete_custom_records) | **POST** /api/custom/delete | Delete records from custom table
+[**delete_custom_records**](CustomApi.md#delete_custom_records) | **POST** /api/custom/delete | Delete record from custom table by ID
 [**get_custom_tables**](CustomApi.md#get_custom_tables) | **GET** /api/custom/tables | Get list of custom tables
-[**read_custom_records**](CustomApi.md#read_custom_records) | **GET** /api/custom/read | Read records from custom table
-[**update_custom_records**](CustomApi.md#update_custom_records) | **POST** /api/custom/update | Update records in custom table
+[**read_custom_records**](CustomApi.md#read_custom_records) | **POST** /api/custom/read | Read records from custom table with flexible filtering
+[**update_custom_records**](CustomApi.md#update_custom_records) | **POST** /api/custom/update | Update record in custom table by ID
 
 
 # **create_custom_record**
@@ -96,9 +96,9 @@ Name | Type | Description  | Notes
 # **delete_custom_records**
 > DeleteCustomRecordsResponse delete_custom_records(delete_custom_records_request)
 
-Delete records from custom table
+Delete record from custom table by ID
 
-Permanently deletes records from a custom table by matching a specific column value. The 'c_' prefix is added automatically to table name if not present. This action cannot be undone.
+Permanently deletes a single record from a custom table by its ID. The table must have an 'id' column. The 'c_' prefix is added automatically to table name if not present. This action cannot be undone.
 
 ### Example
 
@@ -134,7 +134,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
     delete_custom_records_request = orbuculum_client.DeleteCustomRecordsRequest() # DeleteCustomRecordsRequest | 
 
     try:
-        # Delete records from custom table
+        # Delete record from custom table by ID
         api_response = api_instance.delete_custom_records(delete_custom_records_request)
         print("The response of CustomApi->delete_custom_records:\n")
         pprint(api_response)
@@ -259,11 +259,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_custom_records**
-> ReadCustomRecordsResponse read_custom_records(workspace_id, table_name, query_column=query_column, query_value=query_value)
+> ReadCustomRecordsResponse read_custom_records(read_custom_records_request)
 
-Read records from custom table
+Read records from custom table with flexible filtering
 
-Retrieves records from a custom table. Can fetch all records or filter by a specific column value. The 'c_' prefix is added automatically to table name if not present.
+Retrieves records from a custom table with support for complex filtering including multiple conditions, logical operators (AND/OR), groups, comparison operators, pagination and sorting. The 'c_' prefix is added automatically to table name if not present.
 
 ### Example
 
@@ -271,6 +271,7 @@ Retrieves records from a custom table. Can fetch all records or filter by a spec
 
 ```python
 import orbuculum_client
+from orbuculum_client.models.read_custom_records_request import ReadCustomRecordsRequest
 from orbuculum_client.models.read_custom_records_response import ReadCustomRecordsResponse
 from orbuculum_client.rest import ApiException
 from pprint import pprint
@@ -295,14 +296,11 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.CustomApi(api_client)
-    workspace_id = 1 # int | Workspace ID where the custom table exists
-    table_name = 'clients' # str | Custom table name (prefix 'c_' will be added automatically if not present)
-    query_column = 'status' # str | Column name to filter by (optional). If provided, query_value must also be provided. (optional)
-    query_value = 'active' # str | Value to filter by (optional). Used together with query_column to find specific records. (optional)
+    read_custom_records_request = orbuculum_client.ReadCustomRecordsRequest() # ReadCustomRecordsRequest | 
 
     try:
-        # Read records from custom table
-        api_response = api_instance.read_custom_records(workspace_id, table_name, query_column=query_column, query_value=query_value)
+        # Read records from custom table with flexible filtering
+        api_response = api_instance.read_custom_records(read_custom_records_request)
         print("The response of CustomApi->read_custom_records:\n")
         pprint(api_response)
     except Exception as e:
@@ -316,10 +314,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workspace_id** | **int**| Workspace ID where the custom table exists | 
- **table_name** | **str**| Custom table name (prefix &#39;c_&#39; will be added automatically if not present) | 
- **query_column** | **str**| Column name to filter by (optional). If provided, query_value must also be provided. | [optional] 
- **query_value** | **str**| Value to filter by (optional). Used together with query_column to find specific records. | [optional] 
+ **read_custom_records_request** | [**ReadCustomRecordsRequest**](ReadCustomRecordsRequest.md)|  | 
 
 ### Return type
 
@@ -331,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -349,9 +344,9 @@ Name | Type | Description  | Notes
 # **update_custom_records**
 > UpdateCustomRecordsResponse update_custom_records(update_custom_records_request)
 
-Update records in custom table
+Update record in custom table by ID
 
-Updates existing records in a custom table by matching a specific column value. The 'c_' prefix is added automatically to table name if not present. You can update any columns that exist in the target table.
+Updates an existing record in a custom table by its ID. The table must have an 'id' column. The 'c_' prefix is added automatically to table name if not present. You can update any columns that exist in the target table.
 
 ### Example
 
@@ -387,7 +382,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
     update_custom_records_request = orbuculum_client.UpdateCustomRecordsRequest() # UpdateCustomRecordsRequest | 
 
     try:
-        # Update records in custom table
+        # Update record in custom table by ID
         api_response = api_instance.update_custom_records(update_custom_records_request)
         print("The response of CustomApi->update_custom_records:\n")
         pprint(api_response)

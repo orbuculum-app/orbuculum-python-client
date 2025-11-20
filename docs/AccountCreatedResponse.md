@@ -7,8 +7,7 @@ Response after successfully creating an account
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | 
-**id** | **int** | Created account ID | 
-**message** | **str** | Success message | 
+**data** | [**AccountCreatedResponseData**](AccountCreatedResponseData.md) |  | 
 
 ## Example
 

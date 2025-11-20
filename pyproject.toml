@@ -1,6 +1,6 @@
 [project]
 name = "orbuculum-client"
-version = "0.0.5"
+version = "0.2.2"
 description = "Official Python client for the Orbuculum API - accounting and finance automation"
 authors = [
   {name = "Orbuculum Team", email = "i@orbuculum.app"},

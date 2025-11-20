@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **workspace_id** | **int** | Workspace ID | 
 **account_id** | **int** | Account ID | 
 **role_id** | **int** | Role ID | 
-**can_manage** | **bool** | Management permission | 
+**can_manage** | **bool** | Full access | 
 **show_balance** | **bool** | Show balance permission | 
 
 ## Example

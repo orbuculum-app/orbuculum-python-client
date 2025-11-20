@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** | HTTP status code | [optional] 
 **message** | **str** | Success message | [optional] 
-**data** | [**List[CustomTableInfo]**](CustomTableInfo.md) | Array of custom table information | [optional] 
+**data** | [**Dict[str, CustomTableInfo]**](CustomTableInfo.md) | Object containing custom table information (table name as key) | [optional] 
 
 ## Example
 

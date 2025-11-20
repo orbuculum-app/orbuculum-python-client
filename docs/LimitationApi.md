@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **manage_account_limitation**
-> LimitationManagedResponse manage_account_limitation(manage_account_limitation_request)
+> SuccessResponse manage_account_limitation(manage_account_limitation_request)
 
 Manage account transaction limitations
 
@@ -110,8 +110,8 @@ Creates, updates, or removes transaction restrictions between accounts (send/rec
 
 ```python
 import orbuculum_client
-from orbuculum_client.models.limitation_managed_response import LimitationManagedResponse
 from orbuculum_client.models.manage_account_limitation_request import ManageAccountLimitationRequest
+from orbuculum_client.models.success_response import SuccessResponse
 from orbuculum_client.rest import ApiException
 from pprint import pprint
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LimitationManagedResponse**](LimitationManagedResponse.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Account limitation managed successfully |  -  |
+**201** | Account limitation created/updated successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
 **404** | Resource not found |  -  |
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **manage_entity_limitation**
-> LimitationManagedResponse manage_entity_limitation(manage_entity_limitation_request)
+> SuccessResponse manage_entity_limitation(manage_entity_limitation_request)
 
 Manage entity transaction limitations
 
@@ -194,8 +194,8 @@ Creates, updates, or removes transaction restrictions between account and entity
 
 ```python
 import orbuculum_client
-from orbuculum_client.models.limitation_managed_response import LimitationManagedResponse
 from orbuculum_client.models.manage_entity_limitation_request import ManageEntityLimitationRequest
+from orbuculum_client.models.success_response import SuccessResponse
 from orbuculum_client.rest import ApiException
 from pprint import pprint
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LimitationManagedResponse**](LimitationManagedResponse.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Entity limitation managed successfully |  -  |
+**201** | Entity limitation created/updated successfully |  -  |
 **400** | Bad request - validation failed |  -  |
 **401** | Unauthorized |  -  |
 **404** | Resource not found |  -  |

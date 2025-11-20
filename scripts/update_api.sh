@@ -17,6 +17,8 @@ OPENAPI_JSON_URL="${DEFAULT_OPENAPI_URL}"
 SPEC_FILE="/tmp/orbuculum-openapi.json"
 BACKUP_DIR="/workspace/backups/backup_$(date +%Y%m%d_%H%M%S)"
 WORKSPACE="/workspace"
+KEEP_VERSION=false
+SKIP_TESTS=false
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -25,20 +27,32 @@ while [[ $# -gt 0 ]]; do
             OPENAPI_JSON_URL="$2"
             shift 2
             ;;
+        --keep-version|-k)
+            KEEP_VERSION=true
+            shift
+            ;;
+        --skip-tests|-s)
+            SKIP_TESTS=true
+            shift
+            ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS]"
             echo ""
             echo "Update Orbuculum Python client from OpenAPI specification"
             echo ""
             echo "Options:"
-            echo "  --spec-url, -u URL    Custom URL to download OpenAPI spec from"
-            echo "                        Default: ${DEFAULT_OPENAPI_URL}"
-            echo "  -h, --help           Show this help message"
+            echo "  --spec-url, -u URL     Custom URL to download OpenAPI spec from"
+            echo "                         Default: ${DEFAULT_OPENAPI_URL}"
+            echo "  --keep-version, -k     Keep current client version (no interactive prompt)"
+            echo "  --skip-tests, -s       Skip running tests after code generation"
+            echo "  -h, --help            Show this help message"
             echo ""
             echo "Examples:"
-            echo "  $0                                    # Use default URL"
-            echo "  $0 --spec-url https://dev.example.com/swagger/json"
-            echo "  $0 -u http://localhost:8080/openapi.json"
+            echo "  $0                                     # Full workflow with tests"
+            echo "  $0 --keep-version                      # Keep version, run tests"
+            echo "  $0 --skip-tests                        # Skip tests"
+            echo "  $0 -k -s                               # Keep version, skip tests"
+            echo "  $0 -k -u http://localhost:8080/api.json"
             echo ""
             exit 0
             ;;
@@ -255,47 +269,51 @@ calculate_version() {
     esac
 }
 
-# Ask if user wants to update client version
-echo -e "${YELLOW}Do you want to update the client version?${NC}"
-echo "  [1] Keep current version (${CLIENT_VERSION})"
-echo "  [2] Patch bump ($(calculate_version "${CLIENT_VERSION}" "patch")) - Bug fixes"
-echo "  [3] Minor bump ($(calculate_version "${CLIENT_VERSION}" "minor")) - New features, backward-compatible"
-echo "  [4] Major bump ($(calculate_version "${CLIENT_VERSION}" "major")) - Breaking changes"
-echo "  [5] Enter version manually"
-echo ""
-read -p "Choose option [1-5]: " version_choice
-
+# Ask if user wants to update client version (or auto-skip if --keep-version)
 NEW_CLIENT_VERSION="${CLIENT_VERSION}"
 
-case "$version_choice" in
-    1)
-        echo -e "${GREEN}✓ Keeping current version: ${CLIENT_VERSION}${NC}"
-        ;;
-    2)
-        NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "patch")
-        echo -e "${GREEN}✓ Bumping to patch version: ${NEW_CLIENT_VERSION}${NC}"
-        ;;
-    3)
-        NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "minor")
-        echo -e "${GREEN}✓ Bumping to minor version: ${NEW_CLIENT_VERSION}${NC}"
-        ;;
-    4)
-        NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "major")
-        echo -e "${GREEN}✓ Bumping to major version: ${NEW_CLIENT_VERSION}${NC}"
-        ;;
-    5)
-        read -p "Enter new version (e.g., 1.2.3): " manual_version
-        if [[ "$manual_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            NEW_CLIENT_VERSION="$manual_version"
-            echo -e "${GREEN}✓ Setting version to: ${NEW_CLIENT_VERSION}${NC}"
-        else
-            echo -e "${RED}✗ Invalid version format. Keeping current version.${NC}"
-        fi
-        ;;
-    *)
-        echo -e "${YELLOW}⚠ Invalid choice. Keeping current version.${NC}"
-        ;;
-esac
+if [[ "$KEEP_VERSION" == true ]]; then
+    echo -e "${BLUE}Keeping current version (--keep-version flag): ${CLIENT_VERSION}${NC}"
+else
+    echo -e "${YELLOW}Do you want to update the client version?${NC}"
+    echo "  [1] Keep current version (${CLIENT_VERSION})"
+    echo "  [2] Patch bump ($(calculate_version "${CLIENT_VERSION}" "patch")) - Bug fixes"
+    echo "  [3] Minor bump ($(calculate_version "${CLIENT_VERSION}" "minor")) - New features, backward-compatible"
+    echo "  [4] Major bump ($(calculate_version "${CLIENT_VERSION}" "major")) - Breaking changes"
+    echo "  [5] Enter version manually"
+    echo ""
+    read -p "Choose option [1-5]: " version_choice
+
+    case "$version_choice" in
+        1)
+            echo -e "${GREEN}✓ Keeping current version: ${CLIENT_VERSION}${NC}"
+            ;;
+        2)
+            NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "patch")
+            echo -e "${GREEN}✓ Bumping to patch version: ${NEW_CLIENT_VERSION}${NC}"
+            ;;
+        3)
+            NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "minor")
+            echo -e "${GREEN}✓ Bumping to minor version: ${NEW_CLIENT_VERSION}${NC}"
+            ;;
+        4)
+            NEW_CLIENT_VERSION=$(calculate_version "${CLIENT_VERSION}" "major")
+            echo -e "${GREEN}✓ Bumping to major version: ${NEW_CLIENT_VERSION}${NC}"
+            ;;
+        5)
+            read -p "Enter new version (e.g., 1.2.3): " manual_version
+            if [[ "$manual_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                NEW_CLIENT_VERSION="$manual_version"
+                echo -e "${GREEN}✓ Setting version to: ${NEW_CLIENT_VERSION}${NC}"
+            else
+                echo -e "${RED}✗ Invalid version format. Keeping current version.${NC}"
+            fi
+            ;;
+        *)
+            echo -e "${YELLOW}⚠ Invalid choice. Keeping current version.${NC}"
+            ;;
+    esac
+fi
 echo ""
 
 # Update pyproject.toml if version changed
@@ -392,12 +410,30 @@ echo -e "${YELLOW}[4/6] Verifying generated code...${NC}"
 if [ -f "${WORKSPACE}/orbuculum_client/__init__.py" ]; then
     echo -e "${GREEN}✓ Generated code structure looks good${NC}"
     
-    # Try to import the module
+    # Try to install and import the module
     cd "${WORKSPACE}"
-    if python3 -c "import orbuculum_client; print(f'  Version: {orbuculum_client.__version__}')" 2>/dev/null; then
-        echo -e "${GREEN}✓ Module imports successfully${NC}"
+    
+    # Install package in editable mode (quietly)
+    if pip install -e . > /dev/null 2>&1; then
+        # Try to import the module and show version info
+        IMPORT_OUTPUT=$(python3 -c "
+import orbuculum_client
+print(f'  Client version: {orbuculum_client.__version__}')
+try:
+    print(f'  API version: {orbuculum_client.__api_version__}')
+except AttributeError:
+    print('  API version: (not set)')
+" 2>&1)
+        
+        if [ $? -eq 0 ]; then
+            echo "$IMPORT_OUTPUT"
+            echo -e "${GREEN}✓ Module imports successfully${NC}"
+        else
+            echo "$IMPORT_OUTPUT" | head -5
+            echo -e "${YELLOW}⚠ Warning: Module import test failed (this is normal, will be fixed by tests)${NC}"
+        fi
     else
-        echo -e "${YELLOW}⚠ Warning: Module import test failed (this might be normal if dependencies are not installed)${NC}"
+        echo -e "${YELLOW}⚠ Warning: Could not install package (this is normal, will be installed during tests)${NC}"
     fi
 else
     echo -e "${RED}✗ Generated code is incomplete${NC}"
@@ -405,8 +441,33 @@ else
 fi
 echo ""
 
-# Step 5: Summary
-echo -e "${YELLOW}[5/6] Update Summary${NC}"
+# Step 5: Run tests (unless skipped)
+if [[ "$SKIP_TESTS" == false ]]; then
+    echo -e "${YELLOW}[5/7] Running tests...${NC}"
+    cd "${WORKSPACE}"
+    
+    if command -v pytest &> /dev/null; then
+        if pytest; then
+            echo -e "${GREEN}✓ All tests passed${NC}"
+        else
+            echo -e "${RED}✗ Tests failed${NC}"
+            echo ""
+            echo -e "${YELLOW}Tests failed. You can:${NC}"
+            echo "1. Fix the issues and run: docker-compose run --rm dev pytest"
+            echo "2. Review the backup at: ${BACKUP_DIR}"
+            echo "3. Restore from backup if needed"
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}⚠ pytest not found, skipping tests${NC}"
+    fi
+else
+    echo -e "${YELLOW}[5/7] Skipping tests (--skip-tests flag)${NC}"
+fi
+echo ""
+
+# Step 6: Summary
+echo -e "${YELLOW}[6/7] Update Summary${NC}"
 echo -e "${GREEN}✓ OpenAPI specification downloaded from: ${OPENAPI_JSON_URL}${NC}"
 echo -e "${GREEN}✓ Client code regenerated${NC}"
 echo -e "${GREEN}✓ Client version: ${NEW_CLIENT_VERSION}${NC}"
@@ -420,10 +481,19 @@ echo -e "${GREEN}================================${NC}"
 echo "1. Review the changes:"
 echo "   git diff"
 echo ""
-echo "2. Test the client:"
-echo "   docker-compose run --rm dev pytest"
-echo ""
-echo "3. If tests pass, commit the changes:"
+
+if [[ "$SKIP_TESTS" == true ]]; then
+    echo "2. Test the client:"
+    echo "   docker-compose run --rm dev pytest"
+    echo ""
+    STEP=3
+else
+    echo -e "2. ${GREEN}Tests passed!${NC}"
+    echo ""
+    STEP=3
+fi
+
+echo "${STEP}. Commit the changes:"
 echo "   git add ."
 if [ "${NEW_CLIENT_VERSION}" != "${CLIENT_VERSION}" ]; then
     echo "   git commit -m \"Release ${NEW_CLIENT_VERSION} - Supports API ${API_VERSION}\""
@@ -432,7 +502,9 @@ else
 fi
 echo "   git push"
 echo ""
-echo "4. To publish the new version (if client version changed):"
+STEP=$((STEP + 1))
+
+echo "${STEP}. To publish the new version (if client version changed):"
 echo "   docker-compose run --rm publisher testpypi  # Test first"
 echo "   docker-compose run --rm publisher pypi      # Then production"
 echo ""

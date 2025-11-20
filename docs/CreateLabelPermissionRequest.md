@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **role_id** | **int** | Role ID | 
 **can_read** | **bool** | Read permission | [optional] 
 **can_write** | **bool** | Write permission | [optional] 
-**can_manage** | **bool** | Management permission | [optional] 
+**can_manage** | **bool** | Full access | [optional] 
 
 ## Example
 

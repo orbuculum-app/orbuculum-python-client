@@ -18,6 +18,8 @@ services:
       - ./dist:/workspace/dist
     working_dir: /workspace
     command: python -m build --wheel --sdist --outdir /workspace/dist
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   # Service for interactive development/testing
   dev:
@@ -31,6 +33,8 @@ services:
     stdin_open: true
     tty: true
     command: /bin/bash
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   # Service for updating API client from OpenAPI spec
   updater:
@@ -41,7 +45,11 @@ services:
     volumes:
       - .:/workspace
     working_dir: /workspace
-    command: /workspace/scripts/update_api.sh
+    stdin_open: true
+    tty: true
+    entrypoint: /workspace/scripts/update_api.sh
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   # Service for publishing to PyPI/TestPyPI
   publisher:
@@ -56,3 +64,5 @@ services:
     stdin_open: true
     tty: true
     entrypoint: /workspace/scripts/publish.sh
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

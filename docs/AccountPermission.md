@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **account_name** | **str** | Account name | [optional] 
 **can_read** | **bool** | Read permission | [optional] 
 **can_write** | **bool** | Write permission | [optional] 
-**can_manage** | **bool** | Management permission | [optional] 
+**can_manage** | **bool** | Full access | [optional] 
 
 ## Example
 
