@@ -6,7 +6,7 @@ Data object containing rows and pagination information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rows** | **List[Dict[str, object]]** | Array of records. Each record is a dynamic object with columns from your custom table. | 
+**rows** | **List[Dict[str, object]]** | Array of records. Each record is a dynamic object with columns from your custom table. Values can be of any type (string, number, boolean, null, object, or array). | 
 **total_count** | **int** | Total number of records matching the filter (before pagination) | 
 **limit** | **int** | Number of records per page | 
 **offset** | **int** | Starting position for pagination | 

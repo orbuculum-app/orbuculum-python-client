@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **workspace_id** | **int** | Workspace ID where the custom table exists | 
 **table_name** | **str** | Custom table name (prefix &#39;c_&#39; will be added automatically if not present) | 
 **id** | **int** | Record ID to update. The record must have an &#39;id&#39; column. | 
-**record_data** | **Dict[str, object]** | Key-value pairs of columns to update. Keys are column names, values are new data. | 
+**record_data** | **Dict[str, object]** | Key-value pairs of columns to update. Keys are column names, values are new data. Values can be of any type (string, number, boolean, null, object, or array). | 
 
 ## Example
 

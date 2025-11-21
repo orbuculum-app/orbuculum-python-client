@@ -26,7 +26,7 @@ class CustomRecordsDataWithPagination(BaseModel):
     """
     Data object containing rows and pagination information
     """ # noqa: E501
-    rows: List[Dict[str, Any]] = Field(description="Array of records. Each record is a dynamic object with columns from your custom table.")
+    rows: List[Dict[str, Any]] = Field(description="Array of records. Each record is a dynamic object with columns from your custom table. Values can be of any type (string, number, boolean, null, object, or array).")
     total_count: StrictInt = Field(description="Total number of records matching the filter (before pagination)")
     limit: StrictInt = Field(description="Number of records per page")
     offset: StrictInt = Field(description="Starting position for pagination")

@@ -171,6 +171,7 @@ Name | Type | Description  | Notes
 **200** | Record deleted successfully |  -  |
 **400** | Bad request - validation failed or table does not exist |  -  |
 **401** | Unauthorized - invalid or expired token |  -  |
+**404** | Record not found - specified record does not exist in the table |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal server error |  -  |
 
@@ -419,6 +420,7 @@ Name | Type | Description  | Notes
 **200** | Record updated successfully |  -  |
 **400** | Bad request - validation failed or table does not exist |  -  |
 **401** | Unauthorized - invalid or expired token |  -  |
+**404** | Record not found - specified record does not exist in the table |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal server error |  -  |
 

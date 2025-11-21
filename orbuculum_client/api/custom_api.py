@@ -386,6 +386,7 @@ class CustomApi:
             '200': "DeleteCustomRecordsResponse",
             '400': "ErrorResponse400",
             '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
             '405': "ErrorResponse405",
             '500': "ErrorResponse500",
         }
@@ -457,6 +458,7 @@ class CustomApi:
             '200': "DeleteCustomRecordsResponse",
             '400': "ErrorResponse400",
             '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
             '405': "ErrorResponse405",
             '500': "ErrorResponse500",
         }
@@ -528,6 +530,7 @@ class CustomApi:
             '200': "DeleteCustomRecordsResponse",
             '400': "ErrorResponse400",
             '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
             '405': "ErrorResponse405",
             '500': "ErrorResponse500",
         }
@@ -1233,6 +1236,7 @@ class CustomApi:
             '200': "UpdateCustomRecordsResponse",
             '400': "ErrorResponse400",
             '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
             '405': "ErrorResponse405",
             '500': "ErrorResponse500",
         }
@@ -1304,6 +1308,7 @@ class CustomApi:
             '200': "UpdateCustomRecordsResponse",
             '400': "ErrorResponse400",
             '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
             '405': "ErrorResponse405",
             '500': "ErrorResponse500",
         }
@@ -1375,6 +1380,7 @@ class CustomApi:
             '200': "UpdateCustomRecordsResponse",
             '400': "ErrorResponse400",
             '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
             '405': "ErrorResponse405",
             '500': "ErrorResponse500",
         }

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 __api_version__ = "0.10.0"
 __api_supported__ = "0.10.0"
 

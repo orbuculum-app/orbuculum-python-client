@@ -29,7 +29,7 @@ class UpdateCustomRecordsRequest(BaseModel):
     workspace_id: StrictInt = Field(description="Workspace ID where the custom table exists")
     table_name: StrictStr = Field(description="Custom table name (prefix 'c_' will be added automatically if not present)")
     id: StrictInt = Field(description="Record ID to update. The record must have an 'id' column.")
-    record_data: Dict[str, Any] = Field(description="Key-value pairs of columns to update. Keys are column names, values are new data.")
+    record_data: Dict[str, Any] = Field(description="Key-value pairs of columns to update. Keys are column names, values are new data. Values can be of any type (string, number, boolean, null, object, or array).")
     __properties: ClassVar[List[str]] = ["workspace_id", "table_name", "id", "record_data"]
 
     model_config = ConfigDict(

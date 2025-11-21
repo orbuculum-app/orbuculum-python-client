@@ -28,7 +28,7 @@ class CreateCustomRecordRequest(BaseModel):
     """ # noqa: E501
     workspace_id: StrictInt = Field(description="Workspace ID where the custom table exists")
     table_name: StrictStr = Field(description="Custom table name (prefix 'c_' will be added automatically if not present). Example: 'clients' becomes 'c_clients'")
-    record_data: Dict[str, Any] = Field(description="Key-value pairs where keys are column names in your custom table and values are the data to insert. Column names must match your table schema.")
+    record_data: Dict[str, Any] = Field(description="Key-value pairs where keys are column names in your custom table and values are the data to insert. Column names must match your table schema. Values can be of any type (string, number, boolean, null, object, or array).")
     __properties: ClassVar[List[str]] = ["workspace_id", "table_name", "record_data"]
 
     model_config = ConfigDict(
