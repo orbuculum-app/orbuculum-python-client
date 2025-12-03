@@ -44,6 +44,7 @@ docs/CustomTableFilterValueOneOfInner.md
 docs/CustomTableInfo.md
 docs/CustomTableOrderBy.md
 docs/CustomValue.md
+docs/DeleteAccountRequest.md
 docs/DeleteCustomRecordsRequest.md
 docs/DeleteCustomRecordsResponse.md
 docs/DeleteEntity200Response.md
@@ -51,6 +52,7 @@ docs/DeleteEntity200ResponseData.md
 docs/DeleteEntityPermissionRequest.md
 docs/DeleteEntityRequest.md
 docs/DeleteLabelPermissionRequest.md
+docs/DeleteLabelRequest.md
 docs/DeleteTransactionRequest.md
 docs/EditAccountPermissionRequest.md
 docs/EntityApi.md
@@ -174,6 +176,7 @@ orbuculum_client/models/custom_table_filter_value_one_of_inner.py
 orbuculum_client/models/custom_table_info.py
 orbuculum_client/models/custom_table_order_by.py
 orbuculum_client/models/custom_value.py
+orbuculum_client/models/delete_account_request.py
 orbuculum_client/models/delete_custom_records_request.py
 orbuculum_client/models/delete_custom_records_response.py
 orbuculum_client/models/delete_entity200_response.py
@@ -181,6 +184,7 @@ orbuculum_client/models/delete_entity200_response_data.py
 orbuculum_client/models/delete_entity_permission_request.py
 orbuculum_client/models/delete_entity_request.py
 orbuculum_client/models/delete_label_permission_request.py
+orbuculum_client/models/delete_label_request.py
 orbuculum_client/models/delete_transaction_request.py
 orbuculum_client/models/edit_account_permission_request.py
 orbuculum_client/models/entity_permission.py
@@ -292,6 +296,7 @@ test/test_custom_table_filter_value_one_of_inner.py
 test/test_custom_table_info.py
 test/test_custom_table_order_by.py
 test/test_custom_value.py
+test/test_delete_account_request.py
 test/test_delete_custom_records_request.py
 test/test_delete_custom_records_response.py
 test/test_delete_entity200_response.py
@@ -299,6 +304,7 @@ test/test_delete_entity200_response_data.py
 test/test_delete_entity_permission_request.py
 test/test_delete_entity_request.py
 test/test_delete_label_permission_request.py
+test/test_delete_label_request.py
 test/test_delete_transaction_request.py
 test/test_edit_account_permission_request.py
 test/test_entity_api.py

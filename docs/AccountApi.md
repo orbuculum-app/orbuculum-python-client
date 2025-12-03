@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activate_account**](AccountApi.md#activate_account) | **POST** /api/account/activate | Activate an existing account
 [**create_account**](AccountApi.md#create_account) | **POST** /api/account/create | Create a new account
-[**delete_account**](AccountApi.md#delete_account) | **DELETE** /api/account/delete | Delete an existing account
+[**delete_account**](AccountApi.md#delete_account) | **POST** /api/account/delete | Delete an existing account
 [**get_account**](AccountApi.md#get_account) | **GET** /api/account/get | Get account details
 [**update_account**](AccountApi.md#update_account) | **POST** /api/account/update | Update an existing account
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_account**
-> AccountDeletedResponse delete_account(workspace_id, id)
+> AccountDeletedResponse delete_account(delete_account_request)
 
 Delete an existing account
 
@@ -194,6 +194,7 @@ Deletes an existing account from the system. This action cannot be undone.
 ```python
 import orbuculum_client
 from orbuculum_client.models.account_deleted_response import AccountDeletedResponse
+from orbuculum_client.models.delete_account_request import DeleteAccountRequest
 from orbuculum_client.rest import ApiException
 from pprint import pprint
 
@@ -217,12 +218,11 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.AccountApi(api_client)
-    workspace_id = 1 # int | Workspace ID
-    id = 1 # int | Account ID to delete
+    delete_account_request = orbuculum_client.DeleteAccountRequest() # DeleteAccountRequest | 
 
     try:
         # Delete an existing account
-        api_response = api_instance.delete_account(workspace_id, id)
+        api_response = api_instance.delete_account(delete_account_request)
         print("The response of AccountApi->delete_account:\n")
         pprint(api_response)
     except Exception as e:
@@ -236,8 +236,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workspace_id** | **int**| Workspace ID | 
- **id** | **int**| Account ID to delete | 
+ **delete_account_request** | [**DeleteAccountRequest**](DeleteAccountRequest.md)|  | 
 
 ### Return type
 
@@ -249,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

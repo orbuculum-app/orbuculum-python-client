@@ -5,7 +5,7 @@ All URIs are relative to *https://s1.orbuculum.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_entity_permission**](EntityPermissionsApi.md#create_entity_permission) | **POST** /api/permission/entity-create | Create entity permission
-[**delete_entity_permission**](EntityPermissionsApi.md#delete_entity_permission) | **DELETE** /api/permission/entity-delete | Delete entity permission
+[**delete_entity_permission**](EntityPermissionsApi.md#delete_entity_permission) | **POST** /api/permission/entity-delete | Delete entity permission
 [**get_entity_permissions**](EntityPermissionsApi.md#get_entity_permissions) | **GET** /api/permission/entity | Get entity permissions
 
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Delete entity permission
 
-Removes permission settings for an entity, revoking access for specified users or roles
+Removes permission settings for an entity, revoking access for specified users or roles. Note: This endpoint uses POST method instead of DELETE because it requires a JSON request body.
 
 ### Example
 

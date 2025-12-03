@@ -5,7 +5,7 @@ All URIs are relative to *https://s1.orbuculum.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_label_permission**](LabelPermissionsApi.md#create_label_permission) | **POST** /api/permission/label-create | Create label permission
-[**delete_label_permission**](LabelPermissionsApi.md#delete_label_permission) | **DELETE** /api/permission/label-delete | Delete label permission
+[**delete_label_permission**](LabelPermissionsApi.md#delete_label_permission) | **POST** /api/permission/label-delete | Delete label permission
 [**get_label_permissions**](LabelPermissionsApi.md#get_label_permissions) | **GET** /api/permission/label | Get label permissions
 
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Delete label permission
 
-Removes permission settings for a label, revoking access for specified users or roles
+Removes permission settings for a label, revoking access for specified users or roles. Note: This endpoint uses POST method instead of DELETE because it requires a JSON request body.
 
 ### Example
 

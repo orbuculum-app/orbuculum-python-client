@@ -207,11 +207,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**activate_account**](docs/AccountApi.md#activate_account) | **POST** /api/account/activate | Activate an existing account
 *AccountApi* | [**create_account**](docs/AccountApi.md#create_account) | **POST** /api/account/create | Create a new account
-*AccountApi* | [**delete_account**](docs/AccountApi.md#delete_account) | **DELETE** /api/account/delete | Delete an existing account
+*AccountApi* | [**delete_account**](docs/AccountApi.md#delete_account) | **POST** /api/account/delete | Delete an existing account
 *AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /api/account/get | Get account details
 *AccountApi* | [**update_account**](docs/AccountApi.md#update_account) | **POST** /api/account/update | Update an existing account
 *AccountPermissionsApi* | [**create_account_permission**](docs/AccountPermissionsApi.md#create_account_permission) | **POST** /api/permission/account-create | Create account permission
-*AccountPermissionsApi* | [**delete_account_permission**](docs/AccountPermissionsApi.md#delete_account_permission) | **DELETE** /api/permission/account-delete | Delete account permission
+*AccountPermissionsApi* | [**delete_account_permission**](docs/AccountPermissionsApi.md#delete_account_permission) | **POST** /api/permission/account-delete | Delete account permission
 *AccountPermissionsApi* | [**edit_account_permission**](docs/AccountPermissionsApi.md#edit_account_permission) | **POST** /api/permission/account-edit | Permission to edit account
 *AccountPermissionsApi* | [**get_account_permissions**](docs/AccountPermissionsApi.md#get_account_permissions) | **GET** /api/permission/account | Get account permissions
 *AuthenticationApi* | [**login**](docs/AuthenticationApi.md#login) | **POST** /api/auth/login | Login and get JWT token
@@ -226,21 +226,21 @@ Class | Method | HTTP request | Description
 *EntityApi* | [**get_entities**](docs/EntityApi.md#get_entities) | **GET** /api/entity/get | Get entities
 *EntityApi* | [**update_entity**](docs/EntityApi.md#update_entity) | **POST** /api/entity/update | Update entity
 *EntityPermissionsApi* | [**create_entity_permission**](docs/EntityPermissionsApi.md#create_entity_permission) | **POST** /api/permission/entity-create | Create entity permission
-*EntityPermissionsApi* | [**delete_entity_permission**](docs/EntityPermissionsApi.md#delete_entity_permission) | **DELETE** /api/permission/entity-delete | Delete entity permission
+*EntityPermissionsApi* | [**delete_entity_permission**](docs/EntityPermissionsApi.md#delete_entity_permission) | **POST** /api/permission/entity-delete | Delete entity permission
 *EntityPermissionsApi* | [**get_entity_permissions**](docs/EntityPermissionsApi.md#get_entity_permissions) | **GET** /api/permission/entity | Get entity permissions
 *LabelApi* | [**create_label**](docs/LabelApi.md#create_label) | **POST** /api/label/create | Create label
-*LabelApi* | [**delete_label**](docs/LabelApi.md#delete_label) | **DELETE** /api/label/delete | Delete an existing label
+*LabelApi* | [**delete_label**](docs/LabelApi.md#delete_label) | **POST** /api/label/delete | Delete an existing label
 *LabelApi* | [**get_label**](docs/LabelApi.md#get_label) | **GET** /api/label/get | Get label
 *LabelApi* | [**update_label**](docs/LabelApi.md#update_label) | **POST** /api/label/update | Update label
 *LabelPermissionsApi* | [**create_label_permission**](docs/LabelPermissionsApi.md#create_label_permission) | **POST** /api/permission/label-create | Create label permission
-*LabelPermissionsApi* | [**delete_label_permission**](docs/LabelPermissionsApi.md#delete_label_permission) | **DELETE** /api/permission/label-delete | Delete label permission
+*LabelPermissionsApi* | [**delete_label_permission**](docs/LabelPermissionsApi.md#delete_label_permission) | **POST** /api/permission/label-delete | Delete label permission
 *LabelPermissionsApi* | [**get_label_permissions**](docs/LabelPermissionsApi.md#get_label_permissions) | **GET** /api/permission/label | Get label permissions
 *LimitationApi* | [**get_limitation**](docs/LimitationApi.md#get_limitation) | **GET** /api/limitation/get | Get transaction limitations for an account
 *LimitationApi* | [**manage_account_limitation**](docs/LimitationApi.md#manage_account_limitation) | **POST** /api/limitation/account-manage | Manage account transaction limitations
 *LimitationApi* | [**manage_entity_limitation**](docs/LimitationApi.md#manage_entity_limitation) | **POST** /api/limitation/entity-manage | Manage entity transaction limitations
 *TransactionApi* | [**add_transaction_commission**](docs/TransactionApi.md#add_transaction_commission) | **POST** /api/transaction/add-commission | Add commission to a transaction
 *TransactionApi* | [**create_transaction**](docs/TransactionApi.md#create_transaction) | **POST** /api/transaction/create | Create a new transaction
-*TransactionApi* | [**delete_transaction**](docs/TransactionApi.md#delete_transaction) | **DELETE** /api/transaction/delete | Delete an existing transaction
+*TransactionApi* | [**delete_transaction**](docs/TransactionApi.md#delete_transaction) | **POST** /api/transaction/delete | Delete an existing transaction
 *TransactionApi* | [**get_transaction**](docs/TransactionApi.md#get_transaction) | **GET** /api/transaction/get | Get transaction details
 *TransactionApi* | [**update_transaction**](docs/TransactionApi.md#update_transaction) | **POST** /api/transaction/update | Update an existing transaction
 
@@ -283,6 +283,7 @@ Class | Method | HTTP request | Description
  - [CustomTableInfo](docs/CustomTableInfo.md)
  - [CustomTableOrderBy](docs/CustomTableOrderBy.md)
  - [CustomValue](docs/CustomValue.md)
+ - [DeleteAccountRequest](docs/DeleteAccountRequest.md)
  - [DeleteCustomRecordsRequest](docs/DeleteCustomRecordsRequest.md)
  - [DeleteCustomRecordsResponse](docs/DeleteCustomRecordsResponse.md)
  - [DeleteEntity200Response](docs/DeleteEntity200Response.md)
@@ -290,6 +291,7 @@ Class | Method | HTTP request | Description
  - [DeleteEntityPermissionRequest](docs/DeleteEntityPermissionRequest.md)
  - [DeleteEntityRequest](docs/DeleteEntityRequest.md)
  - [DeleteLabelPermissionRequest](docs/DeleteLabelPermissionRequest.md)
+ - [DeleteLabelRequest](docs/DeleteLabelRequest.md)
  - [DeleteTransactionRequest](docs/DeleteTransactionRequest.md)
  - [EditAccountPermissionRequest](docs/EditAccountPermissionRequest.md)
  - [EntityPermission](docs/EntityPermission.md)

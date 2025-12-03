@@ -5,7 +5,7 @@ All URIs are relative to *https://s1.orbuculum.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_account_permission**](AccountPermissionsApi.md#create_account_permission) | **POST** /api/permission/account-create | Create account permission
-[**delete_account_permission**](AccountPermissionsApi.md#delete_account_permission) | **DELETE** /api/permission/account-delete | Delete account permission
+[**delete_account_permission**](AccountPermissionsApi.md#delete_account_permission) | **POST** /api/permission/account-delete | Delete account permission
 [**edit_account_permission**](AccountPermissionsApi.md#edit_account_permission) | **POST** /api/permission/account-edit | Permission to edit account
 [**get_account_permissions**](AccountPermissionsApi.md#get_account_permissions) | **GET** /api/permission/account | Get account permissions
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 Delete account permission
 
-Removes permission settings for an account, revoking access for specified users or roles
+Removes permission settings for an account, revoking access for specified users or roles. Note: This endpoint uses POST method instead of DELETE because it requires a JSON request body.
 
 ### Example
 

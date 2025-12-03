@@ -5,7 +5,7 @@ All URIs are relative to *https://s1.orbuculum.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_label**](LabelApi.md#create_label) | **POST** /api/label/create | Create label
-[**delete_label**](LabelApi.md#delete_label) | **DELETE** /api/label/delete | Delete an existing label
+[**delete_label**](LabelApi.md#delete_label) | **POST** /api/label/delete | Delete an existing label
 [**get_label**](LabelApi.md#get_label) | **GET** /api/label/get | Get label
 [**update_label**](LabelApi.md#update_label) | **POST** /api/label/update | Update label
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_label**
-> SuccessResponse delete_label(project_id, id)
+> SuccessResponse delete_label(delete_label_request)
 
 Delete an existing label
 
@@ -107,6 +107,7 @@ Permanently deletes a label from the system. This action cannot be undone.
 
 ```python
 import orbuculum_client
+from orbuculum_client.models.delete_label_request import DeleteLabelRequest
 from orbuculum_client.models.success_response import SuccessResponse
 from orbuculum_client.rest import ApiException
 from pprint import pprint
@@ -131,12 +132,11 @@ configuration = orbuculum_client.Configuration(
 with orbuculum_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orbuculum_client.LabelApi(api_client)
-    project_id = 1 # int | Workspace ID (parameter name is project_id)
-    id = 1 # int | Label ID to delete
+    delete_label_request = orbuculum_client.DeleteLabelRequest() # DeleteLabelRequest | 
 
     try:
         # Delete an existing label
-        api_response = api_instance.delete_label(project_id, id)
+        api_response = api_instance.delete_label(delete_label_request)
         print("The response of LabelApi->delete_label:\n")
         pprint(api_response)
     except Exception as e:
@@ -150,8 +150,7 @@ with orbuculum_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| Workspace ID (parameter name is project_id) | 
- **id** | **int**| Label ID to delete | 
+ **delete_label_request** | [**DeleteLabelRequest**](DeleteLabelRequest.md)|  | 
 
 ### Return type
 
@@ -163,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

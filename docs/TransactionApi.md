@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_transaction_commission**](TransactionApi.md#add_transaction_commission) | **POST** /api/transaction/add-commission | Add commission to a transaction
 [**create_transaction**](TransactionApi.md#create_transaction) | **POST** /api/transaction/create | Create a new transaction
-[**delete_transaction**](TransactionApi.md#delete_transaction) | **DELETE** /api/transaction/delete | Delete an existing transaction
+[**delete_transaction**](TransactionApi.md#delete_transaction) | **POST** /api/transaction/delete | Delete an existing transaction
 [**get_transaction**](TransactionApi.md#get_transaction) | **GET** /api/transaction/get | Get transaction details
 [**update_transaction**](TransactionApi.md#update_transaction) | **POST** /api/transaction/update | Update an existing transaction
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 Delete an existing transaction
 
-Permanently deletes a transaction from the system. This action cannot be undone.
+Permanently deletes a transaction from the system. This action cannot be undone. Note: This endpoint uses POST method instead of DELETE because it requires a JSON request body.
 
 ### Example
 
